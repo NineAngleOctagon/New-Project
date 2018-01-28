@@ -3,16 +3,14 @@ using UnityEngine.Networking;
 
 public class PlayerController : NetworkBehaviour {
 
-    //This is a reference to the Rigidbody component called "rb"
     public Rigidbody rb; 
 
-    public float forwardForce;
-    public float sidewaysForce;
+    public float moveSpeed;
     public float jumpForce;
     
     void Start()
     {
-        rb.AddForce(0, 0, forwardForce * Time.deltaTime);
+        rb = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate ()
@@ -20,17 +18,21 @@ public class PlayerController : NetworkBehaviour {
         if (!isLocalPlayer)
             return;
 
+        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+
+        Vector3 velocity = rb.velocity;
+
         if (Input.GetKey("d"))
         {
-            rb.AddForce(sidewaysForce, 0, 0);
+            rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
         }
 
         if (Input.GetKey("q"))
         {
-            rb.AddForce(-sidewaysForce, 0, 0);
+            rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
         }
 
-        if (Input.GetKey("w") && rb.position.y == 0.5)
+        if (Input.GetKey(KeyCode.Space) && rb.position.y == 0.5)
         {
             rb.AddForce(0, jumpForce, 0);
         }
