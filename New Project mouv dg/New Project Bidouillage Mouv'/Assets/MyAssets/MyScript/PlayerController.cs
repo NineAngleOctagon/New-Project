@@ -21,6 +21,8 @@ public class PlayerController : NetworkBehaviour {
 		if (!isLocalPlayer)
 			return;
 
+        float factor = Mathf.Sqrt(2) / 2;
+
         if (Input.GetKey("d") && rb.position.y == 0.5 && Time.time - tps >= gap)
 		{
             if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -39,21 +41,21 @@ public class PlayerController : NetworkBehaviour {
             {
                 rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
             tps = Time.time;
         }
@@ -76,21 +78,21 @@ public class PlayerController : NetworkBehaviour {
 			{
 				rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
 			}
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
             tps = Time.time;
         }
@@ -99,33 +101,33 @@ public class PlayerController : NetworkBehaviour {
         {
             if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
                 rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
             }
             else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
                 rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
             }
             else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
                 rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
             }
             else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
                 rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
             }
@@ -136,33 +138,33 @@ public class PlayerController : NetworkBehaviour {
         {
             if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
                 rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
             }
             else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
             {
-                rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
                 rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
             }
             else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, -moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, -moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
             {
                 rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
             }
             else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, moveSpeed);
+                rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
             }
-            else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, moveSpeed))
+            else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
             {
                 rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
             }
