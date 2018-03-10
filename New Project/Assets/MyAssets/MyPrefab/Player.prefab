@@ -292,6 +292,7 @@ MonoBehaviour:
   gap: 0.15
   moveSpeed: 25
   jumpForce: 400
+  PlayerCam: {fileID: 20481041694000916}
 --- !u!114 &114607034945568318
 MonoBehaviour:
   m_ObjectHideFlags: 1
