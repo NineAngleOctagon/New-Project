@@ -13,32 +13,17 @@ public class PlayerController : NetworkBehaviour {
 	public float jumpForce;
     public Camera PlayerCam;
 
-    public Text winText;
+    private TrailRenderer trail;
+    public float gapTrail;
+    private float tpsTrail = 1.3f;
 
-    //A partir de là, c'est un test pour la mort
-    float time = 2.0f;
-    int rate = 10;
+    //public Text winText;
 
-    private Vector3[] arv3;
-    private int head;
-    private int tail = 0;
-    private float sliceTime = 1.0f / 10f;
-
-	void Start()
+    void Start()
 	{
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
-
-        winText.text = "";
-
-        //Same : Je crois que je crée un tableau avec toutes les positions de mon trail
-        arv3 = new Vector3[(Mathf.RoundToInt(time * rate)  + 1)];
-
-        for (var i = 0; i < arv3.Length; i++)
-            arv3[i] = transform.position;
-        head = arv3.Length - 1;
-        StartCoroutine(Collectdata());
-	}
+    }
 
 	void FixedUpdate ()
 	{
@@ -48,11 +33,23 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
 
-        if (Hit())
-        {
-            winText.text = "GG";
-        }
+        /*winText.text = "You lose!!";
+        winText.enabled = false;
 
+        if (rb.detectCollisions || rb.position.y <= -15)
+        {
+            winText.enabled = true;
+        }*/
+
+        trail = rb.GetComponent<TrailRenderer>();
+
+        if (Time.time - tpsTrail >= gapTrail)
+        {
+            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            cube.AddComponent<Rigidbody>();
+            cube.transform.position = trail.GetPosition(trail.positionCount - 5);
+            tpsTrail = Time.time;
+        }
 
         float factor = Mathf.Sqrt(2) / 2;
 
@@ -217,45 +214,6 @@ public class PlayerController : NetworkBehaviour {
 	public override void OnStartLocalPlayer()
 	{
 		GetComponent<MeshRenderer>().material.color = Color.blue;
-    }
-
-    //Test Trail Collider : pas compris cette fonction mais je crois qu'elle collecte à chaque frame les nvelles positions du trail
-    private IEnumerator Collectdata()
-    {
-        while (true)
-        {
-            if (transform.position != arv3[head])
-            {
-                head = (head + 1) % arv3.Length;
-                tail = (tail + 1) % arv3.Length;
-                arv3[head] = transform.position;
-            }
-            yield return new WaitForSeconds(sliceTime);
-        }
-    }
-
-    //Je suppose que cette fonction vérifie si le player est sur une des positions
-    private bool Hit()
-    {
-        var i = head;
-        var j = (head - 1);
-        if (j < 0)
-        {
-            j = arv3.Length - 1;
-        }
-
-        while (j != head)
-        {
-            if (Physics.Linecast(arv3[i], arv3[j]))
-                return true;
-            i--;
-            if (i < 0)
-                i = arv3.Length - 1;
-            j--;
-            if (j < 0)
-                j = arv3.Length - 1;
-        }
-
-        return false;
+        GetComponent<TrailRenderer>().material.color = Color.blue;
     }
 }
