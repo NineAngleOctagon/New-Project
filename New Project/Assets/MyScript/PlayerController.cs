@@ -13,8 +13,6 @@ public class PlayerController : NetworkBehaviour {
 	public float jumpForce;
     public Camera PlayerCam;
 
-    //public Text winText;
-
     void Start()
 	{
 		rb = GetComponent<Rigidbody>();
@@ -29,13 +27,6 @@ public class PlayerController : NetworkBehaviour {
             return;
         }
 
-        /*winText.text = "You lose!!";
-        winText.enabled = false;
-
-        if (rb.detectCollisions || rb.position.y <= -15)
-        {
-        }*/
-
         float factor = Mathf.Sqrt(2) / 2;
 
         if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
@@ -43,7 +34,7 @@ public class PlayerController : NetworkBehaviour {
             transform.Rotate(0, 90, 0);
             if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
             {
-                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);                
+                rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
             }
             else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
             {

@@ -5,16 +5,54 @@ public class WallCreater : NetworkBehaviour {
 
     public Rigidbody rb;
     private TrailRenderer trail;
-    public float gapTrail;
+    public int moveSpeed;
+    private float gapTrail;
     private float tpsTrail;
 
-    void Start () {
+    void Start ()
+    {
         tpsTrail = Time.time + 1.0f;
+        gapTrail = 0.045f;
 	}
 	
-	void Update () {
+	void Update ()
+    {
 
         trail = rb.GetComponent<TrailRenderer>();
+        float factor = Mathf.Sqrt(2) / 2;
+
+        if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
+        {
+            gapTrail = 0.05f;
+        }
+        else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
+        {
+            gapTrail = 0.05f;
+        }
+        else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
+        {
+            gapTrail = 0.05f;
+        }
+        else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
+        {
+            gapTrail = 0.05f;
+        }
+        else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
+        {
+            gapTrail = 0.08f;
+        }
+        else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
+        {
+            gapTrail = 0.08f;
+        }
+        else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
+        {
+            gapTrail = 0.08f;
+        }
+        else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
+        {
+            gapTrail = 0.08f;
+        }
 
         if (Time.time - tpsTrail >= gapTrail)
         {
