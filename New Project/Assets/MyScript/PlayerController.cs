@@ -13,10 +13,6 @@ public class PlayerController : NetworkBehaviour {
 	public float jumpForce;
     public Camera PlayerCam;
 
-    private TrailRenderer trail;
-    public float gapTrail;
-    private float tpsTrail = 1.3f;
-
     //public Text winText;
 
     void Start()
@@ -38,18 +34,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (rb.detectCollisions || rb.position.y <= -15)
         {
-            winText.enabled = true;
         }*/
-
-        trail = rb.GetComponent<TrailRenderer>();
-
-        if (Time.time - tpsTrail >= gapTrail)
-        {
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
-            cube.AddComponent<Rigidbody>();
-            cube.transform.position = trail.GetPosition(trail.positionCount - 5);
-            tpsTrail = Time.time;
-        }
 
         float factor = Mathf.Sqrt(2) / 2;
 

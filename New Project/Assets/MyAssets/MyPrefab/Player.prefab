@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 23795569271243110}
   - component: {fileID: 54296477270900682}
   - component: {fileID: 114121434407127218}
+  - component: {fileID: 114105159477162374}
   - component: {fileID: 65245766200021294}
   - component: {fileID: 114607034945568318}
   - component: {fileID: 114802002620507136}
@@ -277,6 +278,19 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114105159477162374
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1632533279017218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ff4c037d3a4bc4881c70ba303113c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54296477270900682}
+  gapTrail: 0.05
 --- !u!114 &114121434407127218
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -293,7 +307,6 @@ MonoBehaviour:
   moveSpeed: 25
   jumpForce: 400
   PlayerCam: {fileID: 20481041694000916}
-  gapTrail: 0.05
 --- !u!114 &114607034945568318
 MonoBehaviour:
   m_ObjectHideFlags: 1
