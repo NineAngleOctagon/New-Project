@@ -31,6 +31,9 @@ public class WallCreater : NetworkBehaviour {
             tpsTrail = Time.time;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
+
+            cube.GetComponent<MeshRenderer>().enabled = false;
+            cube.layer = 1;
         }
     }
 }
