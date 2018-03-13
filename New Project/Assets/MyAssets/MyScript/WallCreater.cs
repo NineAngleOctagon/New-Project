@@ -5,13 +5,12 @@ public class WallCreater : NetworkBehaviour {
 
     public Rigidbody rb;
     private TrailRenderer trail;
-    private float gapTrail;
+    public float gapTrail;
     private float tpsTrail;
 
     void Start ()
     {
         tpsTrail = Time.time + 0.2f;
-        gapTrail = 0.05f;
 	}
 	
 	void Update ()

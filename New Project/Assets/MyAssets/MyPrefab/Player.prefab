@@ -291,6 +291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54296477270900682}
+  gapTrail: 0.05
 --- !u!114 &114121434407127218
 MonoBehaviour:
   m_ObjectHideFlags: 1

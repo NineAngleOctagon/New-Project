@@ -9,7 +9,9 @@ public class GameOver : NetworkBehaviour {
     {
         if (rb.position.y <= -15)
         {
-            Destroy(rb.gameObject);
+            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
+            rb.isKinematic = true;
         }
     }
 
@@ -17,7 +19,9 @@ public class GameOver : NetworkBehaviour {
     {
         if (collision.gameObject.name == "Cube")
         {
-            Destroy(rb.gameObject);
+            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
+            rb.isKinematic = true;
         }
     }
 }
