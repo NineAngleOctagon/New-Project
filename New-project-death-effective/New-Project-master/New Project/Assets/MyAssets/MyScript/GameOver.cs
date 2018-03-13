@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class GameOver : MonoBehaviour {
+public class GameOver : NetworkBehaviour {
 
     public Rigidbody rb;
 
