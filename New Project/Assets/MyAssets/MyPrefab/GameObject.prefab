@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114523750655123294}
   - component: {fileID: 114021850074563336}
   m_Layer: 0
-  m_Name: lobbyplayer
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

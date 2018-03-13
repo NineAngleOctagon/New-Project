@@ -4,14 +4,25 @@ using UnityEngine.Networking;
 public class GameOver : NetworkBehaviour {
 
     public Rigidbody rb;
+    public Camera PlayerCam;
+    public Camera EndCam;
+    public bool isOver;
 
     private void Update()
     {
         if (rb.position.y <= -15)
         {
+            isOver = true;
+
             rb.GetComponent<PlayerController>().moveSpeed = 0;
             rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
             rb.isKinematic = true;
+
+            PlayerCam.enabled = false;
+
+            EndCam.transform.position = new Vector3(0, 110, 0);
+            EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
+            EndCam.enabled = true;
         }
     }
 
@@ -19,9 +30,17 @@ public class GameOver : NetworkBehaviour {
     {
         if (collision.gameObject.name == "Cube")
         {
+            isOver = true;
+
             rb.GetComponent<PlayerController>().moveSpeed = 0;
             rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
             rb.isKinematic = true;
+
+            PlayerCam.enabled = false;
+
+            EndCam.transform.position = new Vector3(0, 110, 0);
+            EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
+            EndCam.enabled = true;
         }
     }
 }
