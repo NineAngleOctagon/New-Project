@@ -10,7 +10,7 @@ public class WallCreater : NetworkBehaviour {
 
     void Start ()
     {
-        tpsTrail = Time.time + 1f;
+        tpsTrail = Time.time + 0.2f;
         gapTrail = 0.05f;
 	}
 	
