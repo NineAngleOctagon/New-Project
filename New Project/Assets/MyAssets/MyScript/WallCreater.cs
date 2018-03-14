@@ -10,7 +10,7 @@ public class WallCreater : NetworkBehaviour {
 
     void Start ()
     {
-        tpsTrail = Time.time + 0.2f;
+        tpsTrail = Time.time + 1.0f;
 	}
 	
 	void Update ()
@@ -26,14 +26,14 @@ public class WallCreater : NetworkBehaviour {
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
 
-            cube.transform.position = trail.GetPosition(trail.positionCount - 6);
+            cube.transform.position = trail.GetPosition(trail.positionCount - 15);
             tpsTrail = Time.time;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
 
             cube.layer = 1;
 
-            cube.GetComponent<MeshRenderer>().enabled = false;
+            cube.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }
