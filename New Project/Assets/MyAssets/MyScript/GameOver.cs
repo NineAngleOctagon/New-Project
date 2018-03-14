@@ -38,7 +38,7 @@ public class GameOver : NetworkBehaviour {
 
             PlayerCam.enabled = false;
 
-            EndCam.transform.position = new Vector3(0, 110, 0);
+            EndCam.transform.position = new Vector3(0, 150, 0);
             EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
             EndCam.enabled = true;
         }

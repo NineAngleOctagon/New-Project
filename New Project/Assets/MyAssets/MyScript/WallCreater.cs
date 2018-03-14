@@ -31,8 +31,9 @@ public class WallCreater : NetworkBehaviour {
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
 
-            cube.GetComponent<MeshRenderer>().enabled = true;
             cube.layer = 1;
+
+            cube.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
