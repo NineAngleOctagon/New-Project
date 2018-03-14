@@ -12,7 +12,7 @@ public class GameOver : NetworkBehaviour {
     {
         if (rb.position.y <= -15)
         {
-            isOver = true;
+            isOver = false;
 
             rb.GetComponent<PlayerController>().moveSpeed = 0;
             rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
@@ -30,7 +30,7 @@ public class GameOver : NetworkBehaviour {
     {
         if (collision.gameObject.name == "Cube")
         {
-            isOver = true;
+            isOver = false;
 
             rb.GetComponent<PlayerController>().moveSpeed = 0;
             rb.GetComponent<WallCreater>().gapTrail = float.MaxValue;
