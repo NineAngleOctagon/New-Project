@@ -26,7 +26,7 @@ public class WallCreater : NetworkBehaviour {
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
 
-            cube.transform.position = trail.GetPosition(trail.positionCount - 10);
+            cube.transform.position = trail.GetPosition(trail.positionCount - 6);
             tpsTrail = Time.time;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
