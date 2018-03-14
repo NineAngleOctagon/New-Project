@@ -33,7 +33,7 @@ public class WallCreater : NetworkBehaviour {
 
             cube.layer = 1;
 
-            cube.GetComponent<MeshRenderer>().enabled = true;
+            cube.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
