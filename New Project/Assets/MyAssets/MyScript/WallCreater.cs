@@ -26,12 +26,12 @@ public class WallCreater : NetworkBehaviour {
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
 
-            cube.transform.position = trail.GetPosition(trail.positionCount - 6);
+            cube.transform.position = trail.GetPosition(trail.positionCount - 10);
             tpsTrail = Time.time;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
 
-            cube.GetComponent<MeshRenderer>().enabled = false;
+            cube.GetComponent<MeshRenderer>().enabled = true;
             cube.layer = 1;
         }
     }
