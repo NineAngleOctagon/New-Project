@@ -24,6 +24,7 @@ public class PlayerController : NetworkBehaviour {
         if (!isLocalPlayer)
         {
             PlayerCam.enabled = false;
+            EndCam.enabled = false;
             return;
         }
 
