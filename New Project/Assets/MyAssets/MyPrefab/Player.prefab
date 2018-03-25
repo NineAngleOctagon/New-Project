@@ -41,7 +41,6 @@ GameObject:
   - component: {fileID: 23237156861414228}
   - component: {fileID: 54700000937635832}
   - component: {fileID: 114490205992724388}
-  - component: {fileID: 114185259184210116}
   - component: {fileID: 114027710096544786}
   - component: {fileID: 65508655440505202}
   - component: {fileID: 114731424460669740}
@@ -259,7 +258,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1139999561320946}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!81 &81673886611927340
 AudioListener:
   m_ObjectHideFlags: 1
@@ -369,19 +368,7 @@ MonoBehaviour:
   PlayerCam: {fileID: 20241536934522946}
   EndCam: {fileID: 20955723944804736}
   isOver: 0
---- !u!114 &114185259184210116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1395466172365334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1ff4c037d3a4bc4881c70ba303113c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 54700000937635832}
-  gapTrail: 0.005
+  gapTrail: 0
 --- !u!114 &114490205992724388
 MonoBehaviour:
   m_ObjectHideFlags: 1
