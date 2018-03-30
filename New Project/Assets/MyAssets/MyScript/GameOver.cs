@@ -10,12 +10,11 @@ public class GameOver : NetworkBehaviour {
 
     private int[,] board;
     private TrailRenderer trail;
-    public float gapTrail;
     private float tpsTrail;
 
     private void Start()
     {
-        tpsTrail = Time.time + 0.1f;
+        tpsTrail = Time.time + 0.12f;
         board = new int[300, 300];
         for (int i = 0; i < 300; i++)
         {
@@ -33,7 +32,6 @@ public class GameOver : NetworkBehaviour {
             isOver = true;
 
             rb.GetComponent<PlayerController>().moveSpeed = 0;
-            gapTrail = float.MaxValue;
             rb.isKinematic = true;
 
             PlayerCam.enabled = false;
@@ -43,13 +41,11 @@ public class GameOver : NetworkBehaviour {
             EndCam.enabled = true;
         }
 
-        if (Time.time - tpsTrail >= 0)
+        if (Time.time >= tpsTrail)
         {
             trail = rb.GetComponent<TrailRenderer>();
 
-            board[(int) trail.GetPosition(trail.positionCount - 2).x + 150, (int) trail.GetPosition(trail.positionCount - 2).z + 150] = (int) trail.GetPosition(trail.positionCount - 2).y;
-
-            tpsTrail = Time.time;
+            board[(int) trail.GetPosition(trail.positionCount - 5).x + 150, (int) trail.GetPosition(trail.positionCount - 5).z + 150] = (int) trail.GetPosition(trail.positionCount - 5).y;
         }
 
         if (rb.position.y <= -15 && !isOver)
@@ -57,7 +53,6 @@ public class GameOver : NetworkBehaviour {
             isOver = true;
 
             rb.GetComponent<PlayerController>().moveSpeed = 0;
-            gapTrail = float.MaxValue;
             rb.isKinematic = true;
 
             PlayerCam.enabled = false;
