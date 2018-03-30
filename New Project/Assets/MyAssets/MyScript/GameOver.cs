@@ -36,7 +36,7 @@ public class GameOver : NetworkBehaviour {
 
             PlayerCam.enabled = false;
 
-            EndCam.transform.position = new Vector3(0, 150, 0);
+            EndCam.transform.position = new Vector3(0, 176, 0);
             EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
             EndCam.enabled = true;
         }
@@ -46,20 +46,6 @@ public class GameOver : NetworkBehaviour {
             trail = rb.GetComponent<TrailRenderer>();
 
             board[(int) trail.GetPosition(trail.positionCount - 5).x + 150, (int) trail.GetPosition(trail.positionCount - 5).z + 150] = (int) trail.GetPosition(trail.positionCount - 5).y;
-        }
-
-        if (rb.position.y <= -15 && !isOver)
-        {
-            isOver = true;
-
-            rb.GetComponent<PlayerController>().moveSpeed = 0;
-            rb.isKinematic = true;
-
-            PlayerCam.enabled = false;
-
-            EndCam.transform.position = new Vector3(0, 150, 0);
-            EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
-            EndCam.enabled = true;
         }
     }
 }

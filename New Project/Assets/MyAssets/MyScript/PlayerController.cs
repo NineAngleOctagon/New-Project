@@ -32,7 +32,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (!rb.GetComponent<GameOver>().isOver)
         {
-            if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
+            if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
             {
                 transform.Rotate(0, 90, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -70,7 +70,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
+            if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
             {
                 transform.Rotate(0, -90, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -108,7 +108,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
+            if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
             {
                 transform.Rotate(0, 45, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -146,7 +146,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
+            if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
             {
                 transform.Rotate(0, -45, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -184,7 +184,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey(KeyCode.Space) && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
+            if (Input.GetKey(KeyCode.Space) && rb.position.y >= 0.49 && rb.position.y <= 0.51)
             {
                 rb.AddForce(0, jumpForce, 0);
             }
