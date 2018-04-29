@@ -10,13 +10,11 @@ public class PlayerController : NetworkBehaviour {
 	public float moveSpeed;
 	public float jumpForce;
     public Camera PlayerCam;
-    public Camera EndCam;
 
-    void Start()
+    void Start()    
 	{
 		rb = GetComponent<Rigidbody>();
 		rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
-        EndCam.enabled = false;
     }
 
 	void FixedUpdate ()
@@ -24,7 +22,6 @@ public class PlayerController : NetworkBehaviour {
         if (!isLocalPlayer)
         {
             PlayerCam.enabled = false;
-            EndCam.enabled = false;
             return;
         }
 
@@ -32,7 +29,7 @@ public class PlayerController : NetworkBehaviour {
 
         if (!rb.GetComponent<GameOver>().isOver)
         {
-            if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
+            if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, 90, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -70,7 +67,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
+            if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, -90, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -108,7 +105,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
+            if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, 45, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -146,7 +143,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49 && rb.position.y <= 0.51)
+            if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, -45, 0);
                 if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -184,7 +181,7 @@ public class PlayerController : NetworkBehaviour {
                 tps = Time.time;
             }
 
-            if (Input.GetKey(KeyCode.Space) && rb.position.y >= 0.49 && rb.position.y <= 0.51)
+            if (Input.GetKey(KeyCode.Space) && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 rb.AddForce(0, jumpForce, 0);
             }

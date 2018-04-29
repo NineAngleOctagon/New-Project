@@ -5,47 +5,50 @@ public class GameOver : NetworkBehaviour {
 
     public Rigidbody rb;
     public Camera PlayerCam;
-    public Camera EndCam;
     public bool isOver;
-
-    private int[,] board;
-    private TrailRenderer trail;
-    private float tpsTrail;
-
-    private void Start()
-    {
-        tpsTrail = Time.time + 0.12f;
-        board = new int[300, 300];
-        for (int i = 0; i < 300; i++)
-        {
-            for (int j = 0; j < 300; j++)
-            {
-                board[i, j] = -1;
-            }
-        }
-    }
 
     private void Update()
     {
-        if (board[(int) rb.transform.position.x + 150, (int) rb.transform.position.z + 150] == (int) rb.transform.position.y && !isOver)
+        if (!isLocalPlayer)
+            return;
+
+        if (rb.position.y <= -1)
         {
             isOver = true;
 
             rb.GetComponent<PlayerController>().moveSpeed = 0;
             rb.isKinematic = true;
 
-            PlayerCam.enabled = false;
+            PlayerCam.transform.position = new Vector3(0, 150, 0);
+            PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
+        }
+    }
 
-            EndCam.transform.position = new Vector3(0, 176, 0);
-            EndCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
-            EndCam.enabled = true;
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (!isLocalPlayer)
+            return;
+
+        if (collision.gameObject.name == "Cube")
+        {
+            isOver = true;
+
+            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.isKinematic = true;
+
+            PlayerCam.transform.position = new Vector3(0, 150, 0);
+            PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
         }
 
-        if (Time.time >= tpsTrail)
+        if (collision.gameObject.name == "Player(Clone)")
         {
-            trail = rb.GetComponent<TrailRenderer>();
+            isOver = true;
 
-            board[(int) trail.GetPosition(trail.positionCount - 5).x + 150, (int) trail.GetPosition(trail.positionCount - 5).z + 150] = (int) trail.GetPosition(trail.positionCount - 5).y;
+            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.isKinematic = true;
+
+            PlayerCam.transform.position = new Vector3(0, 150, 0);
+            PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
         }
     }
 }
