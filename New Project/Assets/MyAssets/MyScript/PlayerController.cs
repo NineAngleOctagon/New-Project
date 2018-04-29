@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using System.Threading;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -19,12 +20,12 @@ public class PlayerController : NetworkBehaviour
     private Vector3 north_West;
     private Vector3 south_East;
     private Vector3 south_West;
-    Vector3 from1to2 = new Vector3(-300, 1, -140);
-    Vector3 from2to1 = new Vector3(0, 1, 60);
-    Vector3 from3to1 = new Vector3(0, 1, -60);
-    Vector3 from3to2 = new Vector3(-300, 1, -260);
-    Vector3 from1to3 = new Vector3(237.5f, 1, -240);
-    Vector3 from2to3 = new Vector3(162.5f, 1, -240);
+    Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
+    Vector3 from2to1 = new Vector3(0, 0.5f, 60);
+    Vector3 from3to1 = new Vector3(0, 0.5f, -60);
+    Vector3 from3to2 = new Vector3(-300, 0.5f, -260);
+    Vector3 from1to3 = new Vector3(237.5f, 0.5f, -240);
+    Vector3 from2to3 = new Vector3(162.5f, 0.5f, -240);
     
 
     void Start()
@@ -259,7 +260,10 @@ public class PlayerController : NetworkBehaviour
         if (collision.gameObject.name == "transporter 1 to 2")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from1to2;
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(-300, 200, -140);
+            rb.transform.position = from1to2;
+            
             rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
             
@@ -268,34 +272,44 @@ public class PlayerController : NetworkBehaviour
         if (collision.gameObject.name == "transporter 1 to 3")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from1to3;            
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(237.5f, 200, -240);
+            rb.transform.position = from1to3;            
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 2 to 1")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from2to1;
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(0, 200, 60);
+            rb.transform.position = from2to1;
             rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 2 to 3")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from2to3;
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(162.5f, 200, -240);
+            rb.transform.position = from2to3;
             
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 3 to 1")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from3to1;
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(0, 200, -60);
+            rb.transform.position = from3to1;
             
             rb.velocity = north;
         }
         if (collision.gameObject.name == "transporter 3 to 2")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from3to2;
+            rb.transform.position = new Vector3(rb.transform.position.x, 200, rb.transform.position.z);
+            rb.transform.position = new Vector3(-300, 200, -260);
+            rb.transform.position = from3to2;
             
             rb.velocity = north;
             
@@ -305,7 +319,9 @@ public class PlayerController : NetworkBehaviour
 
     public override void OnStartLocalPlayer()
     {
-        GetComponent<MeshRenderer>().material.color = Color.blue;
-        GetComponent<TrailRenderer>().material.color = Color.blue;
+        GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+        GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<TrailRenderer>().material.DisableKeyword("_EMISSION");
     }
 }
