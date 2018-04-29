@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class GameOver : NetworkBehaviour {
+public class GameOver : NetworkBehaviour
+{
 
     public Rigidbody rb;
     public Camera PlayerCam;
