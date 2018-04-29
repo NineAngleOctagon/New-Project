@@ -25,6 +25,7 @@ public class PlayerController : NetworkBehaviour
     Vector3 from3to2 = new Vector3(-300, 1, -260);
     Vector3 from1to3 = new Vector3(237.5f, 1, -240);
     Vector3 from2to3 = new Vector3(162.5f, 1, -240);
+    
 
     void Start()
     {
@@ -223,6 +224,7 @@ public class PlayerController : NetworkBehaviour
         {
             rb.GetComponent<WallCreater>().enabled = true;
         }
+        rb.angularVelocity = new Vector3(0, 0, 0);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -234,12 +236,12 @@ public class PlayerController : NetworkBehaviour
             rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
             
+            
         }
         if (collision.gameObject.name == "transporter 1 to 3")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from1to3;
-
+            rb.GetComponent<PlayerController>().transform.position = from1to3;            
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 2 to 1")
@@ -253,21 +255,21 @@ public class PlayerController : NetworkBehaviour
 
         {
             rb.GetComponent<PlayerController>().transform.position = from2to3;
-
+            
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 3 to 1")
 
         {
             rb.GetComponent<PlayerController>().transform.position = from3to1;
-
+            
             rb.velocity = north;
         }
         if (collision.gameObject.name == "transporter 3 to 2")
 
         {
             rb.GetComponent<PlayerController>().transform.position = from3to2;
-
+            
             rb.velocity = north;
             
         }
