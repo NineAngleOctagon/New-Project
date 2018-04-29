@@ -6,15 +6,17 @@ public class WallCreater : NetworkBehaviour
 
     public Rigidbody rb;
     private TrailRenderer trail;
-    public float gapTrail;
-    private float tpsTrail = 0;
+    private int gapTrail;
 
+    private void Start()
+    {
+        gapTrail = 6;
+    }
     void Update()
     {
-
         trail = rb.GetComponent<TrailRenderer>();
 
-        if (trail.positionCount > 5 && Time.time - tpsTrail >= gapTrail)
+        if (trail.positionCount > gapTrail)
         {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
@@ -24,13 +26,13 @@ public class WallCreater : NetworkBehaviour
             cube.GetComponent<Rigidbody>().useGravity = false;
 
             cube.transform.position = trail.GetPosition(trail.positionCount - 6);
-            tpsTrail = Time.time;
+            gapTrail = trail.positionCount + 2;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
 
             cube.layer = 1;
 
-            cube.GetComponent<MeshRenderer>().enabled = true;
+            cube.GetComponent<MeshRenderer>().enabled = false;
         }
     }
 }
