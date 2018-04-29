@@ -19,12 +19,12 @@ public class PlayerController : NetworkBehaviour
     private Vector3 north_West;
     private Vector3 south_East;
     private Vector3 south_West;
-    Vector3 from1to2 = new Vector3(-300, 1, -150);
-    Vector3 from2to1 = new Vector3(0, 1, 50);
-    Vector3 from3to1 = new Vector3(0, 1, -50);
-    Vector3 from3to2 = new Vector3(-300, 1, -250);
-    Vector3 from1to3 = new Vector3(237.5f, 1, -250);
-    Vector3 from2to3 = new Vector3(162.5f, 1, -250);
+    Vector3 from1to2 = new Vector3(-300, 1, -140);
+    Vector3 from2to1 = new Vector3(0, 1, 60);
+    Vector3 from3to1 = new Vector3(0, 1, -60);
+    Vector3 from3to2 = new Vector3(-300, 1, -260);
+    Vector3 from1to3 = new Vector3(237.5f, 1, -240);
+    Vector3 from2to3 = new Vector3(162.5f, 1, -240);
 
     void Start()
     {
@@ -208,10 +208,23 @@ public class PlayerController : NetworkBehaviour
             {
                 rb.AddForce(0, jumpForce, 0);
             }
+            
 
         }
 
     }
+    private void Update()
+    {
+        if (rb.GetComponent<WallCreater>().enabled == true && ((rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z > 45) || (rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z < -45) || (rb.transform.position.x > -315 && rb.transform.position.x < -285 && rb.transform.position.z > -155) || (rb.transform.position.x > -315 && rb.transform.position.x < -285 && rb.transform.position.z <-235) || (rb.transform.position.x < 177.5 && rb.transform.position.x > 147.5 && rb.transform.position.z > -255 ) || (rb.transform.position.x < 252.5 && rb.transform.position.x > 222.5 && rb.transform.position.z > -255)))
+        {
+            rb.GetComponent<WallCreater>().enabled = false;
+        }
+        if (!(rb.GetComponent<WallCreater>().enabled == true && ((rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z > 45) || (rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z < -45) || (rb.transform.position.x < -315 && rb.transform.position.x > -285 && rb.transform.position.z > -155) || (rb.transform.position.x < -315 && rb.transform.position.x > -285 && rb.transform.position.z < -275) || (rb.transform.position.x > 177.5 && rb.transform.position.x < 147.5 && rb.transform.position.z > -255) || (rb.transform.position.x < 252.5 && rb.transform.position.x > 222.5 && rb.transform.position.z > -255))))
+        {
+            rb.GetComponent<WallCreater>().enabled = true;
+        }
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "transporter 1 to 2")
@@ -220,6 +233,7 @@ public class PlayerController : NetworkBehaviour
             rb.GetComponent<PlayerController>().transform.position = from1to2;
             rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
+            
         }
         if (collision.gameObject.name == "transporter 1 to 3")
 
@@ -255,6 +269,7 @@ public class PlayerController : NetworkBehaviour
             rb.GetComponent<PlayerController>().transform.position = from3to2;
 
             rb.velocity = north;
+            
         }
     }
 
