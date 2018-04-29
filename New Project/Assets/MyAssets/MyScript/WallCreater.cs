@@ -18,17 +18,18 @@ public class WallCreater : NetworkBehaviour {
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
             cube.AddComponent<Rigidbody>();
+            cube.AddComponent<NetworkIdentity>();
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
 
-            cube.transform.position = trail.GetPosition(trail.positionCount - 5);
+            cube.transform.position = trail.GetPosition(trail.positionCount - 6);
             tpsTrail = Time.time;
 
             cube.GetComponent<Rigidbody>().isKinematic = true;
 
             cube.layer = 1;
 
-            cube.GetComponent<MeshRenderer>().enabled = false;
+            cube.GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }

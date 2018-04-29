@@ -10,11 +10,28 @@ public class PlayerController : NetworkBehaviour {
 	public float moveSpeed;
 	public float jumpForce;
     public Camera PlayerCam;
-
+    public Vector3 north;
+    public Vector3 south;
+    public Vector3 west;
+    public Vector3 east;
+    public Vector3 north_East;
+    public Vector3 north_West;
+    public Vector3 south_East;
+    public Vector3 south_West;
+    
     void Start()    
 	{
-		rb = GetComponent<Rigidbody>();
+        float factor = Mathf.Sqrt(2) / 2;
+        rb = GetComponent<Rigidbody>();
 		rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        north = new Vector3(0, rb.velocity.y, moveSpeed);
+        south = new Vector3(0, rb.velocity.y, -moveSpeed);
+        west = new Vector3(-moveSpeed, rb.velocity.y, 0);
+        east = new Vector3(moveSpeed, rb.velocity.y, 0);
+        north_East = new Vector3(factor * moveSpeed, rb.velocity.y, factor* moveSpeed);
+        north_West = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
+        south_East = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
+        south_West = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
     }
 
 	void FixedUpdate ()
@@ -24,7 +41,6 @@ public class PlayerController : NetworkBehaviour {
             PlayerCam.enabled = false;
             return;
         }
-
         float factor = Mathf.Sqrt(2) / 2;
 
         if (!rb.GetComponent<GameOver>().isOver)
@@ -32,37 +48,37 @@ public class PlayerController : NetworkBehaviour {
             if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, 90, 0);
-                if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
+                if (rb.velocity == north)
                 {
-                    rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = east;
                 }
-                else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == east)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+                    rb.velocity = south;
                 }
-                else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
+                else if (rb.velocity == south)
                 {
-                    rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = west;
                 }
-                else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == west)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
+                    rb.velocity = north;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_East)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_East)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_West)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_West)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_East;
                 }
                 tps = Time.time;
             }
@@ -70,37 +86,37 @@ public class PlayerController : NetworkBehaviour {
             if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, -90, 0);
-                if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
+                if (rb.velocity == north)
                 {
-                    rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = west;
                 }
-                else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == west)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+                    rb.velocity = south;
                 }
-                else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
+                else if (rb.velocity == south)
                 {
-                    rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = east;
                 }
-                else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == east)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
+                    rb.velocity = north;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_East)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_West)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_West)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_East)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_East;
                 }
                 tps = Time.time;
             }
@@ -108,37 +124,37 @@ public class PlayerController : NetworkBehaviour {
             if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, 45, 0);
-                if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
+                if (rb.velocity == north)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_East)
                 {
-                    rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = east;
                 }
-                else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == east)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_East)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+                    rb.velocity = south;
                 }
-                else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
+                else if (rb.velocity == south)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_West)
                 {
-                    rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = west;
                 }
-                else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == west)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_West)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
+                    rb.velocity = north;
                 }
                 tps = Time.time;
             }
@@ -146,37 +162,37 @@ public class PlayerController : NetworkBehaviour {
             if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
                 transform.Rotate(0, -45, 0);
-                if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
+                if (rb.velocity == north)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_West)
                 {
-                    rb.velocity = new Vector3(-moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = west;
                 }
-                else if (rb.velocity == new Vector3(-moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == west)
                 {
-                    rb.velocity = new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_West;
                 }
-                else if (rb.velocity == new Vector3(factor * -moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_West)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+                    rb.velocity = south;
                 }
-                else if (rb.velocity == new Vector3(0, rb.velocity.y, -moveSpeed))
+                else if (rb.velocity == south)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed);
+                    rb.velocity = south_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * -moveSpeed))
+                else if (rb.velocity == south_East)
                 {
-                    rb.velocity = new Vector3(moveSpeed, rb.velocity.y, 0);
+                    rb.velocity = east;
                 }
-                else if (rb.velocity == new Vector3(moveSpeed, rb.velocity.y, 0))
+                else if (rb.velocity == east)
                 {
-                    rb.velocity = new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed);
+                    rb.velocity = north_East;
                 }
-                else if (rb.velocity == new Vector3(factor * moveSpeed, rb.velocity.y, factor * moveSpeed))
+                else if (rb.velocity == north_East)
                 {
-                    rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
+                    rb.velocity = north;
                 }
                 tps = Time.time;
             }
