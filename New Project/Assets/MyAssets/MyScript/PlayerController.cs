@@ -49,158 +49,185 @@ public class PlayerController : NetworkBehaviour
             PlayerCam.enabled = false;
             return;
         }
-        float factor = Mathf.Sqrt(2) / 2;
 
         if (!rb.GetComponent<GameOver>().isOver)
         {
             if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
-                transform.Rotate(0, 90, 0);
                 if (rb.velocity == north)
                 {
                     rb.velocity = east;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == east)
                 {
                     rb.velocity = south;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == south)
                 {
                     rb.velocity = west;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == west)
                 {
                     rb.velocity = north;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == north_East)
                 {
                     rb.velocity = south_East;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == south_East)
                 {
                     rb.velocity = south_West;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == south_West)
                 {
                     rb.velocity = north_West;
+                    transform.Rotate(0, 90, 0);
                 }
                 else if (rb.velocity == north_West)
                 {
                     rb.velocity = north_East;
+                    transform.Rotate(0, 90, 0);
                 }
                 tps = Time.time;
             }
 
             if (Input.GetKey("q") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
-                transform.Rotate(0, -90, 0);
                 if (rb.velocity == north)
                 {
                     rb.velocity = west;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == west)
                 {
                     rb.velocity = south;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == south)
                 {
                     rb.velocity = east;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == east)
                 {
                     rb.velocity = north;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == north_East)
                 {
                     rb.velocity = north_West;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == north_West)
                 {
                     rb.velocity = south_West;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == south_West)
                 {
                     rb.velocity = south_East;
+                    transform.Rotate(0, -90, 0);
                 }
                 else if (rb.velocity == south_East)
                 {
                     rb.velocity = north_East;
+                    transform.Rotate(0, -90, 0);
                 }
                 tps = Time.time;
             }
 
             if (Input.GetKey("e") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
-                transform.Rotate(0, 45, 0);
                 if (rb.velocity == north)
                 {
                     rb.velocity = north_East;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == north_East)
                 {
                     rb.velocity = east;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == east)
                 {
                     rb.velocity = south_East;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == south_East)
                 {
                     rb.velocity = south;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == south)
                 {
                     rb.velocity = south_West;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == south_West)
                 {
                     rb.velocity = west;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == west)
                 {
                     rb.velocity = north_West;
+                    transform.Rotate(0, 45, 0);
                 }
                 else if (rb.velocity == north_West)
                 {
                     rb.velocity = north;
+                    transform.Rotate(0, 45, 0);
                 }
                 tps = Time.time;
             }
 
             if (Input.GetKey("a") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
-                transform.Rotate(0, -45, 0);
                 if (rb.velocity == north)
                 {
                     rb.velocity = north_West;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == north_West)
                 {
                     rb.velocity = west;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == west)
                 {
                     rb.velocity = south_West;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == south_West)
                 {
                     rb.velocity = south;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == south)
                 {
                     rb.velocity = south_East;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == south_East)
                 {
                     rb.velocity = east;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == east)
                 {
                     rb.velocity = north_East;
+                    transform.Rotate(0, -45, 0);
                 }
                 else if (rb.velocity == north_East)
                 {
                     rb.velocity = north;
+                    transform.Rotate(0, -45, 0);
                 }
                 tps = Time.time;
             }
