@@ -218,6 +218,7 @@ public class PlayerController : NetworkBehaviour
 
         {
             rb.GetComponent<PlayerController>().transform.position = from1to2;
+            rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 1 to 3")
@@ -231,7 +232,7 @@ public class PlayerController : NetworkBehaviour
 
         {
             rb.GetComponent<PlayerController>().transform.position = from2to1;
-
+            rb.transform.Rotate(0, 180, 0);
             rb.velocity = south;
         }
         if (collision.gameObject.name == "transporter 2 to 3")
