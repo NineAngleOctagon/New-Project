@@ -395,7 +395,7 @@ MonoBehaviour:
   bonus2: {fileID: 1830660694557132, guid: c0c3574734466874aaa61b19e124731b, type: 2}
   bonus3: {fileID: 1536191047452970, guid: be03d710b76e90f438effb330e6f7452, type: 2}
   bonus4: {fileID: 1071037276326418, guid: ed275aef071f6c64d91aaf22b2045956, type: 2}
-  gapBonus: 10
+  gapBonus: 1
 --- !u!124 &124944066606678816
 Behaviour:
   m_ObjectHideFlags: 1

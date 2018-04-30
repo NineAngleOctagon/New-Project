@@ -383,7 +383,7 @@ MonoBehaviour:
   m_GamePlayerPrefab: {fileID: 1395466172365334, guid: c29c67fa60425884587b3b61fb0a36ca,
     type: 2}
   m_LobbyScene: lobbyScene
-  m_PlayScene: Scene1
+  m_PlayScene: Game
   lobbySlots: []
 --- !u!4 &1958496059
 Transform:

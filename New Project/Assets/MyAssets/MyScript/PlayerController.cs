@@ -17,7 +17,7 @@ public class PlayerController : NetworkBehaviour
     Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
     Vector3 from2to1 = new Vector3(0, 0.5f, 60);
     Vector3 from3to1 = new Vector3(0, 0.5f, -60);
-    Vector3 from3to2 = new Vector3(-300, 0.5f, -260);
+    Vector3 from3to2 = new Vector3(-301, 0.5f, -260);
     Vector3 from1to3 = new Vector3(237.5f, 0.5f, -240);
     Vector3 from2to3 = new Vector3(162.5f, 0.5f, -240);
 
@@ -46,6 +46,7 @@ public class PlayerController : NetworkBehaviour
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
+            rb.GetComponent<WallCreater>().frequency += 1;
             fastBonus = false;
         }
 
@@ -53,6 +54,8 @@ public class PlayerController : NetworkBehaviour
         {
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
+            rb.GetComponent<WallCreater>().frequency -= 1;
+            rb.GetComponent<WallCreater>().distance = 6;
             slowBonus = false;
         }
 
@@ -259,14 +262,6 @@ public class PlayerController : NetworkBehaviour
     }
     private void Update()
     {
-        if (rb.GetComponent<WallCreater>().enabled == true && ((rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z > 45) || (rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z < -45) || (rb.transform.position.x > -315 && rb.transform.position.x < -285 && rb.transform.position.z > -155) || (rb.transform.position.x > -315 && rb.transform.position.x < -285 && rb.transform.position.z <-235) || (rb.transform.position.x < 177.5 && rb.transform.position.x > 147.5 && rb.transform.position.z > -255 ) || (rb.transform.position.x < 252.5 && rb.transform.position.x > 222.5 && rb.transform.position.z > -255)))
-        {
-            rb.GetComponent<WallCreater>().enabled = false;
-        }
-        if (!(rb.GetComponent<WallCreater>().enabled == true && ((rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z > 45) || (rb.transform.position.x > -15 && rb.transform.position.x < 15 && rb.transform.position.z < -45) || (rb.transform.position.x < -315 && rb.transform.position.x > -285 && rb.transform.position.z > -155) || (rb.transform.position.x < -315 && rb.transform.position.x > -285 && rb.transform.position.z < -275) || (rb.transform.position.x > 177.5 && rb.transform.position.x < 147.5 && rb.transform.position.z > -255) || (rb.transform.position.x < 252.5 && rb.transform.position.x > 222.5 && rb.transform.position.z > -255))))
-        {
-            rb.GetComponent<WallCreater>().enabled = true;
-        }
         rb.angularVelocity = new Vector3(0, 0, 0);
     }
 
@@ -340,6 +335,7 @@ public class PlayerController : NetworkBehaviour
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
             fastBonus = true;
+            rb.GetComponent<WallCreater>().frequency -= 1;
             tpsBonus = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
@@ -347,6 +343,8 @@ public class PlayerController : NetworkBehaviour
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
+            rb.GetComponent<WallCreater>().distance = 10;
+            rb.GetComponent<WallCreater>().frequency += 1;
             slowBonus = true;
             tpsBonus = Time.time;
             collision.collider.gameObject.SetActive(false);
