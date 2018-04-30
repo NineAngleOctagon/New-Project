@@ -22,13 +22,14 @@ GameObject:
   - component: {fileID: 33098686955671384}
   - component: {fileID: 23237156861414228}
   - component: {fileID: 54700000937635832}
+  - component: {fileID: 114435036051429438}
   - component: {fileID: 114185259184210116}
   - component: {fileID: 114027710096544786}
+  - component: {fileID: 114996874934121892}
   - component: {fileID: 65508655440505202}
   - component: {fileID: 114731424460669740}
   - component: {fileID: 114492096926530390}
   - component: {fileID: 96343207830737258}
-  - component: {fileID: 114435036051429438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -321,6 +322,10 @@ MonoBehaviour:
   moveSpeed: 25
   jumpForce: 400
   PlayerCam: {fileID: 20241536934522946}
+  tpsBonus: 0
+  ghostBonus: 0
+  bigWall: 0
+  bigWallCreate: 0
 --- !u!114 &114492096926530390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -374,6 +379,23 @@ MonoBehaviour:
     i15: 202
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
+--- !u!114 &114996874934121892
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395466172365334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c2f76c27d9105f449dc83d351672f80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54700000937635832}
+  bonus1: {fileID: 1899181926622030, guid: 56bdfaecd4846b44294836dd148bbc06, type: 2}
+  bonus2: {fileID: 1830660694557132, guid: c0c3574734466874aaa61b19e124731b, type: 2}
+  bonus3: {fileID: 1536191047452970, guid: be03d710b76e90f438effb330e6f7452, type: 2}
+  bonus4: {fileID: 1071037276326418, guid: ed275aef071f6c64d91aaf22b2045956, type: 2}
+  gapBonus: 10
 --- !u!124 &124944066606678816
 Behaviour:
   m_ObjectHideFlags: 1
