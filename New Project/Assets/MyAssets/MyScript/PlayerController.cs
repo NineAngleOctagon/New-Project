@@ -64,7 +64,7 @@ public class PlayerController : NetworkBehaviour
             ghostBonus = false;
         }
 
-        if (bigWall && Time.time - tpsBonus >= 70.0f)
+        if (bigWall && Time.time - tpsBonus >= 7.0f)
         {
             bigWall = false;
         }
