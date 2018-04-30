@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
+using System.Threading;
 
 public class PlayerController : NetworkBehaviour
 {
@@ -19,12 +20,12 @@ public class PlayerController : NetworkBehaviour
     private Vector3 north_West;
     private Vector3 south_East;
     private Vector3 south_West;
-    Vector3 from1to2 = new Vector3(-300, 1, -140);
-    Vector3 from2to1 = new Vector3(0, 1, 60);
-    Vector3 from3to1 = new Vector3(0, 1, -60);
-    Vector3 from3to2 = new Vector3(-300, 1, -260);
-    Vector3 from1to3 = new Vector3(237.5f, 1, -240);
-    Vector3 from2to3 = new Vector3(162.5f, 1, -240);
+    Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
+    Vector3 from2to1 = new Vector3(0, 0.5f, 60);
+    Vector3 from3to1 = new Vector3(0, 0.5f, -60);
+    Vector3 from3to2 = new Vector3(-300, 0.5f, -260);
+    Vector3 from1to3 = new Vector3(237.5f, 0.5f, -240);
+    Vector3 from2to3 = new Vector3(162.5f, 0.5f, -240);
     
 
     void Start()
@@ -252,60 +253,108 @@ public class PlayerController : NetworkBehaviour
             rb.GetComponent<WallCreater>().enabled = true;
         }
         rb.angularVelocity = new Vector3(0, 0, 0);
+        print(" x = " + rb.velocity.x);        
+        print(" z = " + rb.velocity.z);
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "transporter 1 to 2")
 
-        {
-            rb.GetComponent<PlayerController>().transform.position = from1to2;
-            rb.transform.Rotate(0, 180, 0);
-            rb.velocity = south;
-            
-            
+        {            
+            rb.transform.position = new Vector3(0, 200.5f, 80);            
+            rb.velocity = new Vector3(-300, 0, -220);           
         }
+
+        if (collision.gameObject.name == "transporter chemin 1 to 2")
+
+        {
+            rb.transform.position = new Vector3(-300, 0.5f, -140);
+            rb.velocity = south;
+            rb.transform.Rotate(0, 180, 0);            
+        }
+
         if (collision.gameObject.name == "transporter 1 to 3")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from1to3;            
-            rb.velocity = south;
+            
+            rb.transform.position = new Vector3(0, 200.5f, -80);
+            rb.velocity = new Vector3(236.3f, 0, -160.545f);           
+            
         }
+        if (collision.gameObject.name == "transporter chemin 1 to 3")
+
+        {
+            rb.transform.position = from1to3;
+            rb.velocity = south;            
+
+        }
+
         if (collision.gameObject.name == "transporter 2 to 1")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from2to1;
-            rb.transform.Rotate(0, 180, 0);
+            rb.transform.position = new Vector3(-300, 200.5f, -120);
+            rb.velocity = new Vector3(297.4f, 0, 184.3f);           
+        }
+        if (collision.gameObject.name == "transporter chemin 2 to 1")
+
+        {
+            rb.transform.position = from2to1;
             rb.velocity = south;
+            rb.transform.Rotate(0, 180, 0);
+            
         }
         if (collision.gameObject.name == "transporter 2 to 3")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from2to3;
             
+            rb.transform.position = new Vector3(-300, 200.5f, -280); 
+            rb.velocity = new Vector3(462.5f, 0, 40);
+        }
+        if (collision.gameObject.name == "transporter chemin 2 to 3")
+
+        {
+            rb.transform.position = from2to3;
             rb.velocity = south;
+
         }
         if (collision.gameObject.name == "transporter 3 to 1")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from3to1;
-            
-            rb.velocity = north;
+            rb.transform.position = new Vector3(237.5f, 200.5f, -220);
+            rb.velocity = new Vector3(-237.5f , 0, 160);           
         }
+
+        if (collision.gameObject.name == "transporter chemin 3 to 1")
+
+        {
+            rb.transform.position = from3to1;
+            rb.velocity = north;
+            
+        }
+
         if (collision.gameObject.name == "transporter 3 to 2")
 
         {
-            rb.GetComponent<PlayerController>().transform.position = from3to2;
-            
-            rb.velocity = north;
-            
+            rb.transform.position = new Vector3(162.5f, 200.5f, -220);
+            rb.velocity = new Vector3(-462.5f, 0, -40);            
+        }
+
+        if (collision.gameObject.name == "transporter chemin 3 to 2")
+
+        {            
+            rb.transform.position = from3to2;
+            rb.velocity = new Vector3(0, rb.velocity.y, 25);
+
         }
     }
 
 
     public override void OnStartLocalPlayer()
     {
-        GetComponent<MeshRenderer>().material.color = Color.blue;
-        GetComponent<TrailRenderer>().material.color = Color.blue;
+        GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+        GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<TrailRenderer>().material.DisableKeyword("_EMISSION");
     }
 }
