@@ -22,13 +22,14 @@ GameObject:
   - component: {fileID: 33098686955671384}
   - component: {fileID: 23237156861414228}
   - component: {fileID: 54700000937635832}
+  - component: {fileID: 114435036051429438}
   - component: {fileID: 114185259184210116}
   - component: {fileID: 114027710096544786}
+  - component: {fileID: 114098316000538758}
   - component: {fileID: 65508655440505202}
   - component: {fileID: 114731424460669740}
   - component: {fileID: 114492096926530390}
   - component: {fileID: 96343207830737258}
-  - component: {fileID: 114435036051429438}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -171,7 +172,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 32
   m_CollisionDetection: 0
 --- !u!65 &65508655440505202
 BoxCollider:
@@ -293,6 +294,20 @@ MonoBehaviour:
   rb: {fileID: 54700000937635832}
   PlayerCam: {fileID: 20241536934522946}
   isOver: 0
+--- !u!114 &114098316000538758
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395466172365334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e32df14ab0ca5d4294dcef26a295b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54700000937635832}
+  bonus: {fileID: 1359029569487048, guid: 5dc954d86780a084d84858813f61b4f3, type: 2}
+  gapBonus: 2
 --- !u!114 &114185259184210116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -321,6 +336,10 @@ MonoBehaviour:
   moveSpeed: 25
   jumpForce: 400
   PlayerCam: {fileID: 20241536934522946}
+  tpsBonus: 0
+  ghostBonus: 0
+  bigWall: 0
+  bigWallCreate: 0
 --- !u!114 &114492096926530390
 MonoBehaviour:
   m_ObjectHideFlags: 1

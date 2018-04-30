@@ -33,6 +33,12 @@ public class WallCreater : NetworkBehaviour
             cube.layer = 1;
 
             cube.GetComponent<MeshRenderer>().enabled = false;
+
+            if (rb.GetComponent<PlayerController>().bigWall)
+            {
+                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
+                cube.transform.position = new Vector3(cube.transform.position.x, 2.0f, cube.transform.position.z);
+            }
         }
     }
 }
