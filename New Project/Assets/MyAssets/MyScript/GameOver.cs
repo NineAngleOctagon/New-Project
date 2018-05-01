@@ -56,7 +56,7 @@ public class GameOver : NetworkBehaviour
             }
         }
 
-        if (collision.gameObject.name == "Player(Clone)")
+        if (collision.gameObject.name == "Player(Clone)" || collision.gameObject.name == "'Bot'")
         {
             isOver = true;
 

@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class Bot : NetworkBehaviour {
 
     public Rigidbody rb;
-    private float tmp;
+    public float tmp;
     public float moveSpeed;
     private float factor;
 
@@ -64,9 +64,9 @@ public class Bot : NetworkBehaviour {
             bigWall = false;
         }
 
-        if (Time.time - tmp > 0.3f && !GetComponent<BotDeath>().isOver)
+        if (Time.time - tmp > 1 && !GetComponent<BotDeath>().isOver)
         {
-            float rdmdir = Random.Range(0.0f, 4.0f);
+            float rdmdir = Random.Range(0.0f, 6.0f);
             switch ((int)rdmdir)
             {
                 case 0:

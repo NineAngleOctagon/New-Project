@@ -28,6 +28,8 @@ GameObject:
   - component: {fileID: 65662240854565212}
   - component: {fileID: 114849097426957950}
   - component: {fileID: 114393849573531548}
+  - component: {fileID: 114401368715632312}
+  - component: {fileID: 114179255023208040}
   m_Layer: 0
   m_Name: '''Bot'''
   m_TagString: Untagged
@@ -62,7 +64,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: e0f64a399c043bc4498508c0935935ca, type: 2}
+  - {fileID: 2100000, guid: 77b4ba1c0a57e104781df17fee73d377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -131,7 +133,7 @@ TrailRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0f64a399c043bc4498508c0935935ca, type: 2}
+  - {fileID: 2100000, guid: 77b4ba1c0a57e104781df17fee73d377, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -203,6 +205,20 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
+--- !u!114 &114179255023208040
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823497228359484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70854012e7c90be47bcba6f4b77e6450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bot: {fileID: 54586870453742488}
+  tps: 0
+  turning: 0
 --- !u!114 &114393849573531548
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -216,6 +232,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 54586870453742488}
   isOver: 0
+--- !u!114 &114401368715632312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1823497228359484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8692e76d18e326b44a1cb88fd13d8c4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bot: {fileID: 54586870453742488}
+  dodging: 0
+  tps: 0
 --- !u!114 &114497184036946518
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -228,8 +258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54586870453742488}
+  tmp: 0
   moveSpeed: 0
-  tpsBonus: 0
+  tpsBonus1: 0
+  tpsBonus2: 0
+  tpsBonus3: 0
+  tpsBonus4: 0
   ghostBonus: 0
   bigWall: 0
   bigWallCreate: 0

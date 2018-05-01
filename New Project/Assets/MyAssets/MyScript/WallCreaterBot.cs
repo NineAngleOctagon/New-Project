@@ -11,9 +11,9 @@ public class WallCreaterBot : NetworkBehaviour
 
     private void Start()
     {
-        gapTrail = 6;
+        gapTrail = 10;
         frequency = 2;
-        distance = 6;
+        distance = 10;
     }
     void Update()
     {
@@ -25,6 +25,9 @@ public class WallCreaterBot : NetworkBehaviour
 
             cube.AddComponent<Rigidbody>();
             cube.AddComponent<NetworkIdentity>();
+            cube.AddComponent<BoxCollider>();
+            cube.GetComponent<BoxCollider>().isTrigger = true;
+            cube.GetComponent<BoxCollider>().size = new Vector3(3.5f, 3.5f, 3.5f);
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
