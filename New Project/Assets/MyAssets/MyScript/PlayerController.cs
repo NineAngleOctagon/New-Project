@@ -14,12 +14,12 @@ public class PlayerController : NetworkBehaviour
     public Camera PlayerCam;
     private float factor = Mathf.Sqrt(2) / 2;
 
-    Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
-    Vector3 from2to1 = new Vector3(0, 0.5f, 60);
-    Vector3 from3to1 = new Vector3(0, 0.5f, -60);
-    Vector3 from3to2 = new Vector3(-301, 0.5f, -260);
-    Vector3 from1to3 = new Vector3(237.5f, 0.5f, -240);
-    Vector3 from2to3 = new Vector3(162.5f, 0.5f, -240);
+    private Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
+    private Vector3 from2to1 = new Vector3(0, 0.5f, 60);
+    private Vector3 from3to1 = new Vector3(0, 0.5f, -60);
+    private Vector3 from3to2 = new Vector3(-301, 0.5f, -260);
+    private Vector3 from1to3 = new Vector3(237.5f, 0.5f, -240);
+    private Vector3 from2to3 = new Vector3(162.5f, 0.5f, -240);
 
     public float tpsBonus;
     private bool fastBonus = false;
