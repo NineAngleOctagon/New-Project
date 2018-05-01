@@ -49,6 +49,13 @@ public class WallCreaterBot : NetworkBehaviour
             {
                 Destroy(cube);
             }
+
+
+            if (rb.GetComponent<Bot>().bigWall)
+            {
+                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
+                cube.transform.position = new Vector3(cube.transform.position.x, 4.0f, cube.transform.position.z);
+            }
         }
     }
 }

@@ -18,7 +18,7 @@ public class GameOver : NetworkBehaviour
         speed = rb.velocity;
         rotPlayer = rb.transform.rotation;
 
-        if (rb.position.y <= -1)
+        if (rb.position.y <= -2 || Input.GetKey("m"))
         {
             isOver = true;
 

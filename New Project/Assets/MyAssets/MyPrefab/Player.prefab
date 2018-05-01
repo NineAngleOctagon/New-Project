@@ -324,7 +324,10 @@ MonoBehaviour:
   moveSpeed: 25
   jumpForce: 27500
   PlayerCam: {fileID: 20241536934522946}
-  tpsBonus: 0
+  tpsBonus1: 0
+  tpsBonus2: 0
+  tpsBonus3: 0
+  tpsBonus4: 0
   ghostBonus: 0
   bigWall: 0
   bigWallCreate: 0
@@ -397,7 +400,7 @@ MonoBehaviour:
   bonus2: {fileID: 1317989783645260, guid: c0c3574734466874aaa61b19e124731b, type: 2}
   bonus3: {fileID: 1058091444397226, guid: be03d710b76e90f438effb330e6f7452, type: 2}
   bonus4: {fileID: 1602707728842094, guid: ed275aef071f6c64d91aaf22b2045956, type: 2}
-  gapBonus: 10
+  gapBonus: 2
 --- !u!124 &124944066606678816
 Behaviour:
   m_ObjectHideFlags: 1
