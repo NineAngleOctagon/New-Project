@@ -270,64 +270,76 @@ public class PlayerController : NetworkBehaviour
         if (collision.gameObject.name == "transporter 1 to 2")
         {            
             rb.transform.position = new Vector3(0, 200.5f, 80);            
-            rb.velocity = new Vector3(-300, 0, -220);           
+            rb.velocity = new Vector3(-300, 0, -220);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 1 to 2")
         {
             rb.transform.position = new Vector3(-300, 0.5f, -140);
             rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
-            rb.transform.Rotate(0, 180, 0);            
+            rb.transform.Rotate(0, 180, 0);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter 1 to 3")
         {            
             rb.transform.position = new Vector3(0, 200.5f, -80);
-            rb.velocity = new Vector3(236.3f, 0, -160.545f);                      
+            rb.velocity = new Vector3(236.3f, 0, -160.545f);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 1 to 3")
         {
             rb.transform.position = from1to3;
-            rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);            
+            rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter 2 to 1")
         {
             rb.transform.position = new Vector3(-300, 200.5f, -120);
-            rb.velocity = new Vector3(297.4f, 0, 184.3f);           
+            rb.velocity = new Vector3(297.4f, 0, 184.3f);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 2 to 1")
         {
             rb.transform.position = from2to1;
             rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
-            rb.transform.Rotate(0, 180, 0);            
+            rb.transform.Rotate(0, 180, 0);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter 2 to 3")
         {            
             rb.transform.position = new Vector3(-300, 200.5f, -280); 
             rb.velocity = new Vector3(462.5f, 0, 40);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 2 to 3")
         {
             rb.transform.position = from2to3;
             rb.velocity = new Vector3(0, rb.velocity.y, -moveSpeed);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter 3 to 1")
         {
             rb.transform.position = new Vector3(237.5f, 200.5f, -220);
-            rb.velocity = new Vector3(-237.5f , 0, 160);           
+            rb.velocity = new Vector3(-237.5f , 0, 160);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 3 to 1")
         {
             rb.transform.position = from3to1;
-            rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);            
+            rb.velocity = new Vector3(0, rb.velocity.y, moveSpeed);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter 3 to 2")
         {
             rb.transform.position = new Vector3(162.5f, 200.5f, -220);
-            rb.velocity = new Vector3(-462.5f, 0, -40);            
+            rb.velocity = new Vector3(-462.5f, 0, -40);
+            tpsBonus = 0;
         }
         if (collision.gameObject.name == "transporter chemin 3 to 2")
         {            
             rb.transform.position = from3to2;
             rb.velocity = new Vector3(0, rb.velocity.y, 25);
+            tpsBonus = 0;
         }
 
         if (collision.collider.name == "Bonus1(Clone)")
