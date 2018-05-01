@@ -50,7 +50,7 @@ public class BonusController : NetworkBehaviour
                     break;
             }
 
-            Vector3 position = new Vector3(posx, 0.5f, posz);
+            Vector3 position = new Vector3(posx, 1.0f, posz);
 
             int bonusType = (int)Random.Range(0f, 4.0f);
             switch (bonusType)
