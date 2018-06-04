@@ -28,6 +28,17 @@ public class GameOver : NetworkBehaviour
             PlayerCam.transform.position = new Vector3(0, 150, 0);
             PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
         }
+
+        if (Time.time - rb.GetComponent<WallCreater>().tpsSafe >= 5.0f && rb.GetComponent<WallCreater>().isSafe)
+        {
+            isOver = true;
+
+            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.isKinematic = true;
+
+            PlayerCam.transform.position = new Vector3(0, 150, 0);
+            PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

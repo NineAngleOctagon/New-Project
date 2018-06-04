@@ -9,6 +9,9 @@ public class WallCreater : NetworkBehaviour
     public int frequency;
     public int distance;
 
+    public bool isSafe = false;
+    public float tpsSafe;
+
     private void Start()
     {
         gapTrail = 6;
@@ -27,10 +30,13 @@ public class WallCreater : NetworkBehaviour
             cube.AddComponent<NetworkIdentity>();
             cube.AddComponent<BoxCollider>();
             cube.GetComponent<BoxCollider>().isTrigger = true;
-            cube.GetComponent<BoxCollider>().size = new Vector3(3.5f,3.5f,3.5f);
+            cube.GetComponent<BoxCollider>().size = new Vector3(3.5f, 3.5f, 3.5f);
+
             cube.GetComponent<Rigidbody>().mass = int.MaxValue;
             cube.GetComponent<Rigidbody>().useGravity = false;
+
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
+
             if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
                 && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
                 && (pos.x <= -315 || pos.x >= -285 || pos.z <= -155)
@@ -47,9 +53,17 @@ public class WallCreater : NetworkBehaviour
                 cube.layer = 1;
 
                 cube.GetComponent<MeshRenderer>().enabled = false;
+
+                isSafe = false;
             }
             else
             {
+                if (!isSafe)
+                {
+                    isSafe = true;
+                    tpsSafe = Time.time;
+                }
+
                 Destroy(cube);
             }
 
