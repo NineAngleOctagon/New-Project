@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 95150074069397318}
   - component: {fileID: 114917299300391022}
   - component: {fileID: 114434446500395922}
+  - component: {fileID: 114535538029205140}
   m_Layer: 0
   m_Name: Bonus1
   m_TagString: Untagged
@@ -142,6 +143,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36cd81d439e3284ba868e8e0e0c7195, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114535538029205140
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1266302096599706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: 870353891bb340e2b2a9c8707e7419ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 3
+  m_SendInterval: 0
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
 --- !u!114 &114917299300391022
 MonoBehaviour:
   m_ObjectHideFlags: 1
