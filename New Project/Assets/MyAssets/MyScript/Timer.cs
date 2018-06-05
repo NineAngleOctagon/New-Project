@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Timer : MonoBehaviour
+public class Timer : NetworkBehaviour
 {
 
     public Rigidbody rb;
@@ -67,6 +68,7 @@ public class Timer : MonoBehaviour
 
         if (timersafe >= 0.0f && rb.GetComponent<WallCreater>().isSafe)
         {
+            GUI.skin.box.fontSize = 25;
             GUI.Box(new Rect(Screen.width - 200, 10, 75, 37.5f), timersafe.ToString("0"));
         }
     }

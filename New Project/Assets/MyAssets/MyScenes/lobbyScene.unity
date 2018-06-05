@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0039957035, g: 0.00021792635, b: 0.000000051515347,
+  m_IndirectSpecularColor: {r: 0.003995701, g: 0.0002179261, b: 0.000000051515347,
     a: 1}
 --- !u!157 &3
 LightmapSettings:
@@ -318,7 +318,10 @@ MonoBehaviour:
   m_OfflineScene: lobbyScene
   m_OnlineScene: 
   m_SpawnPrefabs:
-  - {fileID: 0}
+  - {fileID: 1266302096599706, guid: 56bdfaecd4846b44294836dd148bbc06, type: 2}
+  - {fileID: 1317989783645260, guid: c0c3574734466874aaa61b19e124731b, type: 2}
+  - {fileID: 1058091444397226, guid: be03d710b76e90f438effb330e6f7452, type: 2}
+  - {fileID: 1602707728842094, guid: ed275aef071f6c64d91aaf22b2045956, type: 2}
   m_CustomConfig: 0
   m_MaxConnections: 4
   m_ConnectionConfig:
