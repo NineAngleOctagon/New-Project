@@ -21,6 +21,9 @@ public class WallCreater : NetworkBehaviour
     }
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
@@ -28,6 +31,17 @@ public class WallCreater : NetworkBehaviour
             GameObject cube = originalcube;
 
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
+
+            if (!rb.GetComponent<PlayerController>().bigWall)
+            {
+                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
+            }
+            else
+            {
+                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
+                cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
+            }
 
             if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
                 && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
@@ -56,17 +70,6 @@ public class WallCreater : NetworkBehaviour
                     isSafe = true;
                     tpsSafe = Time.time;
                 }
-            }
-
-            if (rb.GetComponent<PlayerController>().bigWall)
-            {
-                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
-            }
-            else
-            {
-                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
             }
         }
     }
