@@ -310,6 +310,8 @@ MonoBehaviour:
   rb: {fileID: 54700000937635832}
   frequency: 0
   distance: 0
+  originalcube: {fileID: 1215790130981338, guid: 38c85afd36bcce248950372f4583da9a,
+    type: 2}
   isSafe: 0
   tpsSafe: 0
 --- !u!114 &114294336064579386

@@ -32,7 +32,7 @@ public class BotDeath : NetworkBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Cube")
+        if (collision.gameObject.name == "Cube(Clone)")
         {
             if (!rb.GetComponent<Bot>().ghostBonus)
             {

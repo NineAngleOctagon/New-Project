@@ -46,7 +46,7 @@ public class GameOver : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        if (collision.gameObject.name == "Cube")
+        if (collision.gameObject.name == "Cube(Clone)")
         {
             if (!rb.GetComponent<PlayerController>().ghostBonus)
             {
