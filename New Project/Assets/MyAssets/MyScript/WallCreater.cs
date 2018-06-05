@@ -28,49 +28,47 @@ public class WallCreater : NetworkBehaviour
 
         if (trail.positionCount > gapTrail)
         {
-            GameObject cube = originalcube;
+            CmdSpawnCube(trail);
+        }
+    }
 
-            Vector3 pos = trail.GetPosition(trail.positionCount - distance);
+    [Command]
+    void CmdSpawnCube(TrailRenderer trail)
+    {
+        GameObject cube = originalcube;
 
-            if (!rb.GetComponent<PlayerController>().bigWall)
-            {
-                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
-            }
-            else
-            {
-                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
-            }
+        Vector3 pos = trail.GetPosition(trail.positionCount - distance);
 
-            if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
-                && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
-                && (pos.x <= -315 || pos.x >= -285 || pos.z <= -155)
-                && (pos.x <= -315 || pos.x >= -285 || pos.z >= -245)
-                && (pos.x >= 177.5 || pos.x <= 147.5 || pos.z <= -255)
-                && (pos.x >= 252.5 || pos.x <= 222.5 || pos.z <= -255)
-                && pos.y <= 30)
-            {
-                gapTrail = trail.positionCount + frequency;
+        if (!rb.GetComponent<PlayerController>().bigWall)
+        {
+            cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+            cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
+        }
+        else
+        {
+            cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
+            cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
+        }
 
-                cube.GetComponent<Rigidbody>().isKinematic = true;
+        if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
+            && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
+            && (pos.x <= -315 || pos.x >= -285 || pos.z <= -155)
+            && (pos.x <= -315 || pos.x >= -285 || pos.z >= -245)
+            && (pos.x >= 177.5 || pos.x <= 147.5 || pos.z <= -255)
+            && (pos.x >= 252.5 || pos.x <= 222.5 || pos.z <= -255)
+            && pos.y <= 30)
+        {
+            gapTrail = trail.positionCount + frequency;
 
-                cube.layer = 1;
+            cube.GetComponent<Rigidbody>().isKinematic = true;
 
-                cube.GetComponent<MeshRenderer>().enabled = true;
+            cube.layer = 1;
 
-                isSafe = false;
-                GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
-                NetworkServer.Spawn(cubespawned);
-            }
-            else
-            {
-                if (!isSafe)
-                {
-                    isSafe = true;
-                    tpsSafe = Time.time;
-                }
-            }
+            cube.GetComponent<MeshRenderer>().enabled = true;
+
+            isSafe = false;
+            GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
+            NetworkServer.Spawn(cubespawned);
         }
     }
 }
