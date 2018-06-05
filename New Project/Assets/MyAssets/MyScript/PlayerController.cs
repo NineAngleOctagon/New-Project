@@ -4,7 +4,6 @@ using System.Threading;
 
 public class PlayerController : NetworkBehaviour
 {
-
     public Rigidbody rb;
 
     private float tps = 0;
@@ -25,11 +24,14 @@ public class PlayerController : NetworkBehaviour
     public float tpsBonus2;
     public float tpsBonus3;
     public float tpsBonus4;
+    [SyncVar]
     private bool fastBonus = false;
+    [SyncVar]
     private bool slowBonus = false;
+    [SyncVar]
     public bool ghostBonus = false;
+    [SyncVar]
     public bool bigWall = false;
-    public bool bigWallCreate = false;
 
     void Start()
     {
@@ -414,7 +416,6 @@ public class PlayerController : NetworkBehaviour
         if (collision.collider.name == "Bonus4(Clone)" && !bigWall)
         {
             bigWall = true;
-            bigWallCreate = true;
             tpsBonus4 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }

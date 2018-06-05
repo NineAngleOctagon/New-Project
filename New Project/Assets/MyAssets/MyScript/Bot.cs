@@ -25,7 +25,6 @@ public class Bot : NetworkBehaviour {
     private bool slowBonus = false;
     public bool ghostBonus = false;
     public bool bigWall = false;
-    public bool bigWallCreate = false;
 
     void Start () {
         rb.velocity = new Vector3(25, rb.velocity.y, 0);
@@ -35,8 +34,6 @@ public class Bot : NetworkBehaviour {
 
     void FixedUpdate()
     {
-
-
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)
         {
             moveSpeed /= 1.5f;
@@ -383,7 +380,6 @@ public class Bot : NetworkBehaviour {
         if (collision.collider.name == "Bonus4(Clone)" && !bigWall)
         {
             bigWall = true;
-            bigWallCreate = true;
             tpsBonus4 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }

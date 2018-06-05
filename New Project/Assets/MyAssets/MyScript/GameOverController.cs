@@ -14,7 +14,12 @@ public class GameOverController : NetworkBehaviour {
     }
 
     void Update () {
+
+        if (!isLocalPlayer)
+            return;
+
         isOver = GetComponent<GameOver>().isOver;
+
         if (isOver)
         {
             if (Input.GetKey("[1]"))

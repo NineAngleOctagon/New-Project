@@ -25,28 +25,21 @@ public class WallCreater : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
-        CmdSpawnBonus();
+        CmdSpawnBonus(rb.GetComponent<PlayerController>().bigWall);
     }
 
     [Command]
-    void CmdSpawnBonus()
+    void CmdSpawnBonus(bool bigWall)
     {
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
         {
             GameObject cube = originalCube;
-            cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
 
-            if (rb.GetComponent<PlayerController>().bigWall)
+            if (bigWall)
             {
                 cube = myBigCube;
-                cube.transform.position = new Vector3(cube.transform.position.x, 5.0f + cube.transform.position.y, cube.transform.position.z);
-            }
-            else
-            {
-                cube = originalCube;
-                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
             }
 
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
@@ -68,8 +61,16 @@ public class WallCreater : NetworkBehaviour
                 cube.GetComponent<MeshRenderer>().enabled = true;
 
                 isSafe = false;
-                GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
-                NetworkServer.Spawn(cubespawned);
+                if (!bigWall)
+                {
+                    GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
+                    NetworkServer.Spawn(cubespawned);
+                }
+                else
+                {
+                    GameObject cubespawned = Instantiate(cube, new Vector3(pos.x, pos.y + 2.5f, pos.z), Quaternion.identity);
+                    NetworkServer.Spawn(cubespawned);
+                }
             }
             else
             {

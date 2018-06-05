@@ -3,7 +3,6 @@ using UnityEngine.Networking;
 
 public class GameOver : NetworkBehaviour
 {
-
     public Rigidbody rb;
     public Camera PlayerCam;
     public bool isOver;
