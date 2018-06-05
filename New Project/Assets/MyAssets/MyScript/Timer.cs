@@ -20,8 +20,6 @@ public class Timer : NetworkBehaviour
     private GUIStyle styleghost = null;
     private GUIStyle stylewalls = null;
 
-    private GUIStyle stylesafe = null;
-
     private void Start()
     {
         tmp = Time.time;

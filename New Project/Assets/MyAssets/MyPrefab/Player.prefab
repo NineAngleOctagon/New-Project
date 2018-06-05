@@ -312,6 +312,7 @@ MonoBehaviour:
   distance: 0
   originalCube: {fileID: 1215790130981338, guid: 38c85afd36bcce248950372f4583da9a,
     type: 2}
+  myBigCube: {fileID: 1541086555042234, guid: 65328dce01381d44d80019f41a265cc4, type: 2}
   isSafe: 0
   tpsSafe: 0
 --- !u!114 &114294336064579386

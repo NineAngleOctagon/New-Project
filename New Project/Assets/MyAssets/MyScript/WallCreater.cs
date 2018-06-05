@@ -9,6 +9,7 @@ public class WallCreater : NetworkBehaviour
     public int frequency;
     public int distance;
     public GameObject originalCube;
+    public GameObject myBigCube;
 
     public bool isSafe = false;
     public float tpsSafe;
@@ -35,19 +36,15 @@ public class WallCreater : NetworkBehaviour
         if (trail.positionCount > gapTrail)
         {
             GameObject cube = originalCube;
+            cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
 
-            Vector3 pos = trail.GetPosition(trail.positionCount - distance);
-
-            if (!rb.GetComponent<PlayerController>().bigWall)
+            if (rb.GetComponent<PlayerController>().bigWall)
             {
-                cube.transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
-            }
-            else
-            {
-                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
+                cube = myBigCube;
                 cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
             }
+
+            Vector3 pos = trail.GetPosition(trail.positionCount - distance);
 
             if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
                 && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
