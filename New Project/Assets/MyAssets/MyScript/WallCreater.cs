@@ -8,7 +8,7 @@ public class WallCreater : NetworkBehaviour
     private int gapTrail;
     public int frequency;
     public int distance;
-    public GameObject originalcube;
+    public GameObject originalCube;
 
     public bool isSafe = false;
     public float tpsSafe;
@@ -16,7 +16,7 @@ public class WallCreater : NetworkBehaviour
     private void Start()
     {
         gapTrail = 6;
-        frequency = 2;
+        frequency = 1;
         distance = 6;
     }
     void Update()
@@ -24,11 +24,17 @@ public class WallCreater : NetworkBehaviour
         if (!isLocalPlayer)
             return;
 
+        CmdSpawnBonus();
+    }
+
+    [Command]
+    void CmdSpawnBonus()
+    {
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
         {
-            GameObject cube = originalcube;
+            GameObject cube = originalCube;
 
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
 
@@ -60,15 +66,9 @@ public class WallCreater : NetworkBehaviour
                 cube.GetComponent<MeshRenderer>().enabled = true;
 
                 isSafe = false;
-                CmdSpawnBonus(cube, pos);
+                GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
+                NetworkServer.Spawn(cubespawned);
             }
         }
-    }
-
-    [Command]
-    void CmdSpawnBonus(GameObject cube, Vector3 pos)
-    {
-        GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
-        NetworkServer.Spawn(cubespawned);
     }
 }
