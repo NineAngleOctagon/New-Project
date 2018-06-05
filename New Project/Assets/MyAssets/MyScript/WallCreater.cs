@@ -41,7 +41,12 @@ public class WallCreater : NetworkBehaviour
             if (rb.GetComponent<PlayerController>().bigWall)
             {
                 cube = myBigCube;
-                cube.transform.position = new Vector3(cube.transform.position.x, 3.0f + cube.transform.position.y, cube.transform.position.z);
+                cube.transform.position = new Vector3(cube.transform.position.x, 5.0f + cube.transform.position.y, cube.transform.position.z);
+            }
+            else
+            {
+                cube = originalCube;
+                cube.transform.position = new Vector3(cube.transform.position.x, cube.transform.position.y, cube.transform.position.z);
             }
 
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
