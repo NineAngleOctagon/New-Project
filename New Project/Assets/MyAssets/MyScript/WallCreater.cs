@@ -69,6 +69,14 @@ public class WallCreater : NetworkBehaviour
                 GameObject cubespawned = Instantiate(cube, pos, Quaternion.identity);
                 NetworkServer.Spawn(cubespawned);
             }
+            else
+            {
+                if (!isSafe)
+                {
+                    tpsSafe = Time.time;
+                    isSafe = true;
+                }
+            }
         }
     }
 }
