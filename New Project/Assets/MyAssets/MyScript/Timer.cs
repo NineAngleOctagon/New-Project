@@ -5,7 +5,6 @@ using UnityEngine.Networking;
 
 public class Timer : NetworkBehaviour
 {
-
     public Rigidbody rb;
     private float tmp;
 
@@ -30,6 +29,9 @@ public class Timer : NetworkBehaviour
 
     void Update()
     {
+        if (!isLocalPlayer)
+            return;
+
         timerfast = rb.GetComponent<PlayerController>().tpsBonus1 - Time.time + 7;
         timerslow = rb.GetComponent<PlayerController>().tpsBonus2 - Time.time + 7;
         timerghost = rb.GetComponent<PlayerController>().tpsBonus3 - Time.time + 7;
@@ -40,6 +42,9 @@ public class Timer : NetworkBehaviour
 
     private void OnGUI()
     {
+        if (!isLocalPlayer)
+            return;
+
         InitStyles();
 
         if (Time.time > tmp + 7.0f)
