@@ -39,6 +39,11 @@ public class PlayerControllerSolo : MonoBehaviour
 
         GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
         GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
+
+        GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
+        GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<TrailRenderer>().material.DisableKeyword("_EMISSION");
     }
 
     void FixedUpdate()

@@ -10,7 +10,6 @@ public class BotDeath : MonoBehaviour
     public void Start()
     {
         isOver = false;
-        rb.GetComponent<Bot>().moveSpeed = 25;
         rb.isKinematic = false;
     }
 
@@ -48,7 +47,7 @@ public class BotDeath : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'")
+        if (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'" || collision.gameObject.name == "BotNextLvl")
         {
             isOver = true;
 

@@ -61,7 +61,7 @@ public class GameOverSolo : MonoBehaviour
             if (numbers == 2)
             {
                 bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
-                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<BotDeath>().isOver;
 
                 if (playerzero && playerone)
                 {
@@ -75,8 +75,8 @@ public class GameOverSolo : MonoBehaviour
             if (numbers == 3)
             {
                 bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
-                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
-                bool playertwo = players[2].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<BotDeath>().isOver;
+                bool playertwo = players[2].GetComponent<BotDeath>().isOver;
 
                 if (playerzero && playerone && playertwo)
                 {
@@ -99,9 +99,9 @@ public class GameOverSolo : MonoBehaviour
             if (numbers == 4)
             {
                 bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
-                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
-                bool playertwo = players[2].GetComponent<GameOverSolo>().isOver;
-                bool playerthree = players[3].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<BotDeath>().isOver;
+                bool playertwo = players[2].GetComponent<BotDeath>().isOver;
+                bool playerthree = players[3].GetComponent<BotDeath>().isOver;
 
                 if (playerzero && playerone && playertwo && playerthree)
                 {
@@ -160,7 +160,7 @@ public class GameOverSolo : MonoBehaviour
             }
         }
 
-        if (!isOver && (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'"))
+        if (!isOver && (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'" || collision.gameObject.name == "BotNextLvl"))
         {
             isOver = true;
 
