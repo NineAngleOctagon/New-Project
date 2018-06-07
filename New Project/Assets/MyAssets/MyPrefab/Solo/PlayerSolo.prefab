@@ -47,6 +47,7 @@ GameObject:
   - component: {fileID: 114457852749934682}
   - component: {fileID: 65885558674166584}
   - component: {fileID: 96473863286439270}
+  - component: {fileID: 114203490061425178}
   m_Layer: 0
   m_Name: PlayerSolo
   m_TagString: Player
@@ -293,6 +294,23 @@ MonoBehaviour:
   rb: {fileID: 54656310210862952}
   PlayerCam: {fileID: 20649418981579748}
   isOver: 0
+--- !u!114 &114203490061425178
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1112158197304784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6cd7f158bd887478d0ad9474ccfb61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54656310210862952}
+  originalCube: {fileID: 1082202574479132, guid: 57812b69dab35b84995dd1325c897474,
+    type: 2}
+  myBigCube: {fileID: 1994641359049270, guid: 2ae2a60630781344785bc96437d9efde, type: 2}
+  isSafe: 0
+  tpsSafe: 0
 --- !u!114 &114271334276684080
 MonoBehaviour:
   m_ObjectHideFlags: 1
