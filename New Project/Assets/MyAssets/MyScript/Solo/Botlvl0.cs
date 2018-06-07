@@ -1,10 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
 
-public class Botlvl0 : NetworkBehaviour {
-
+public class Botlvl0 : MonoBehaviour
+{
     public Rigidbody bot;
     private float moveSpeed;
     private float factor;
@@ -12,8 +9,8 @@ public class Botlvl0 : NetworkBehaviour {
     public bool dodging;
     public float tps;
 
-	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         factor = Mathf.Sqrt(2) / 2;
 	}
 

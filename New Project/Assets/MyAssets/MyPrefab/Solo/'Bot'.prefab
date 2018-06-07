@@ -22,10 +22,9 @@ GameObject:
   - component: {fileID: 33954903673461188}
   - component: {fileID: 23445710875343250}
   - component: {fileID: 96661872472206962}
-  - component: {fileID: 114641115580083116}
-  - component: {fileID: 114497184036946518}
   - component: {fileID: 54586870453742488}
   - component: {fileID: 65662240854565212}
+  - component: {fileID: 114497184036946518}
   - component: {fileID: 114849097426957950}
   - component: {fileID: 114393849573531548}
   - component: {fileID: 114401368715632312}
@@ -266,39 +265,6 @@ MonoBehaviour:
   tpsBonus4: 0
   ghostBonus: 0
   bigWall: 0
-  bigWallCreate: 0
---- !u!114 &114641115580083116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1823497228359484}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 246
-    i1: 192
-    i2: 112
-    i3: 247
-    i4: 155
-    i5: 10
-    i6: 11
-    i7: 52
-    i8: 73
-    i9: 185
-    i10: 147
-    i11: 154
-    i12: 160
-    i13: 178
-    i14: 130
-    i15: 153
-  m_ServerOnly: 1
-  m_LocalPlayerAuthority: 0
 --- !u!114 &114849097426957950
 MonoBehaviour:
   m_ObjectHideFlags: 1

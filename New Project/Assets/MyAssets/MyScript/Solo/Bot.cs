@@ -1,16 +1,12 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
 
-public class Bot : NetworkBehaviour {
-
+public class Bot : MonoBehaviour
+{
     public Rigidbody rb;
     public float tmp;
     public float moveSpeed;
     private float factor;
 
-    private Vector3 from1to2 = new Vector3(-300, 0.5f, -140);
     private Vector3 from2to1 = new Vector3(0, 0.5f, 60);
     private Vector3 from3to1 = new Vector3(0, 0.5f, -60);
     private Vector3 from3to2 = new Vector3(-301, 0.5f, -260);
@@ -26,7 +22,8 @@ public class Bot : NetworkBehaviour {
     public bool ghostBonus = false;
     public bool bigWall = false;
 
-    void Start () {
+    void Start ()
+    {
         rb.velocity = new Vector3(25, rb.velocity.y, 0);
         moveSpeed = 25;
         factor = Mathf.Sqrt(2) / 2;

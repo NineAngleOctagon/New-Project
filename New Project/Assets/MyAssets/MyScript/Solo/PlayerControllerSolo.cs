@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class PlayerController : NetworkBehaviour
+public class PlayerControllerSolo : MonoBehaviour
 {
     public Rigidbody rb;
 
@@ -22,29 +21,22 @@ public class PlayerController : NetworkBehaviour
     public float tpsBonus2;
     public float tpsBonus3;
     public float tpsBonus4;
-    [SyncVar]
     private bool fastBonus = false;
-    [SyncVar]
     private bool slowBonus = false;
-    [SyncVar]
     public bool ghostBonus = false;
-    [SyncVar]
     public bool bigWall = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+
+        GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
+        GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
     }
 
     void FixedUpdate()
     {
-        if (!isLocalPlayer)
-        {
-            PlayerCam.enabled = false;
-            return;
-        }
-
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)
         {
             moveSpeed /= 1.5f;
@@ -263,7 +255,7 @@ public class PlayerController : NetworkBehaviour
             {
                 rb.AddForce(0, jumpForce, 0);
             }
-            
+
 
         }
 
@@ -276,8 +268,8 @@ public class PlayerController : NetworkBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.name == "transporter 1 to 2")
-        {            
-            rb.transform.position = new Vector3(0, 200.5f, 80);            
+        {
+            rb.transform.position = new Vector3(0, 200.5f, 80);
             rb.velocity = new Vector3(-300, 0, -220);
             tpsBonus1 = 0;
             tpsBonus2 = 0;
@@ -295,7 +287,7 @@ public class PlayerController : NetworkBehaviour
             tpsBonus4 = 0;
         }
         if (collision.gameObject.name == "transporter 1 to 3")
-        {            
+        {
             rb.transform.position = new Vector3(0, 200.5f, -80);
             rb.velocity = new Vector3(236.3f, 0, -160.545f);
             tpsBonus1 = 0;
@@ -332,8 +324,8 @@ public class PlayerController : NetworkBehaviour
             tpsBonus4 = 0;
         }
         if (collision.gameObject.name == "transporter 2 to 3")
-        {            
-            rb.transform.position = new Vector3(-300, 200.5f, -280); 
+        {
+            rb.transform.position = new Vector3(-300, 200.5f, -280);
             rb.velocity = new Vector3(462.5f, 0, 40);
             tpsBonus1 = 0;
             tpsBonus2 = 0;
@@ -352,7 +344,7 @@ public class PlayerController : NetworkBehaviour
         if (collision.gameObject.name == "transporter 3 to 1")
         {
             rb.transform.position = new Vector3(237.5f, 200.5f, -220);
-            rb.velocity = new Vector3(-237.5f , 0, 160);
+            rb.velocity = new Vector3(-237.5f, 0, 160);
             tpsBonus1 = 0;
             tpsBonus2 = 0;
             tpsBonus3 = 0;
@@ -377,7 +369,7 @@ public class PlayerController : NetworkBehaviour
             tpsBonus4 = 0;
         }
         if (collision.gameObject.name == "transporter chemin 3 to 2")
-        {            
+        {
             rb.transform.position = from3to2;
             rb.velocity = new Vector3(0, rb.velocity.y, 25);
             tpsBonus1 = 0;
@@ -418,13 +410,5 @@ public class PlayerController : NetworkBehaviour
             collision.collider.gameObject.SetActive(false);
         }
     }
-
-
-    public override void OnStartLocalPlayer()
-    {
-        GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
-        GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
-        GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
-        GetComponent<TrailRenderer>().material.DisableKeyword("_EMISSION");
-    }
 }
+

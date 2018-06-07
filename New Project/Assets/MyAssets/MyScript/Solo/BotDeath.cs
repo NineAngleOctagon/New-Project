@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class BotDeath : NetworkBehaviour
+public class BotDeath : MonoBehaviour
 {
-
     public Rigidbody rb;
     public bool isOver;
     private Vector3 speed;

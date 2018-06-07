@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.Networking;
+﻿using UnityEngine;
 
-public class Botlvl1 : NetworkBehaviour {
-
+public class Botlvl1 : MonoBehaviour
+{
     public Rigidbody bot;
     public float tps;
     public bool turning;
 	
-	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 		if (!turning && (bot.transform.position.x > 70 || bot.transform.position.x < -70) && !(bot.velocity == new Vector3(0, bot.velocity.y, bot.GetComponent<Bot>().moveSpeed)))
         {
             bot.velocity = new Vector3(0, bot.velocity.y, bot.GetComponent<Bot>().moveSpeed);

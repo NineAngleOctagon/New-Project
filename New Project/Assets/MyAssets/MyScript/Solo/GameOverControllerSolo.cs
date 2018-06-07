@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class GameOverController : NetworkBehaviour
+public class GameOverControllerSolo : MonoBehaviour
 {
+
     private bool isOver;
     private Camera PlayerCam;
 
@@ -11,11 +11,8 @@ public class GameOverController : NetworkBehaviour
         PlayerCam = GetComponent<GameOver>().PlayerCam;
     }
 
-    void Update ()
+    void Update()
     {
-        if (!isLocalPlayer)
-            return;
-
         isOver = GetComponent<GameOver>().isOver;
 
         if (isOver)
@@ -27,5 +24,5 @@ public class GameOverController : NetworkBehaviour
             if (Input.GetKey("[3]"))
                 PlayerCam.transform.position = new Vector3(200, 150, -300);
         }
-	}
+    }
 }

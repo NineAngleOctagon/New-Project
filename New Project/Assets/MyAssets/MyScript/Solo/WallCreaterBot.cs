@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using UnityEngine.Networking;
 
-public class WallCreaterBot : NetworkBehaviour
+public class WallCreaterBot : MonoBehaviour
 {
     public Rigidbody rb;
     private TrailRenderer trail;
@@ -24,7 +23,6 @@ public class WallCreaterBot : NetworkBehaviour
             GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
 
             cube.AddComponent<Rigidbody>();
-            cube.AddComponent<NetworkIdentity>();
             cube.AddComponent<BoxCollider>();
             cube.GetComponent<BoxCollider>().isTrigger = true;
             cube.GetComponent<BoxCollider>().size = new Vector3(3.5f, 3.5f, 3.5f);

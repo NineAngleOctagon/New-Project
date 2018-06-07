@@ -3,7 +3,6 @@ using UnityEngine.Networking;
 
 public class BonusController : NetworkBehaviour
 {
-
     public Rigidbody rb;
     public GameObject bonus1;
     public GameObject bonus2;
