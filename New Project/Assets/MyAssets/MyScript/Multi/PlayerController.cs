@@ -31,10 +31,16 @@ public class PlayerController : NetworkBehaviour
     [SyncVar]
     public bool bigWall = false;
 
+    public float tpsStart;
+    public bool isStopped;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        rb.velocity = new Vector3(0, 0, 0);
+
+        tpsStart = Time.time;
+        isStopped = true;
     }
 
     void FixedUpdate()
@@ -43,6 +49,15 @@ public class PlayerController : NetworkBehaviour
         {
             PlayerCam.enabled = false;
             return;
+        }
+
+        if (isStopped)
+        {
+            if (!(Time.time - tpsStart <= 5.0f))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+                isStopped = false;
+            }
         }
 
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)

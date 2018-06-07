@@ -11,6 +11,7 @@ public class InterfaceSolo : MonoBehaviour
     private float timerwalls;
 
     private float timersafe;
+    private float timerstart;
 
     private void Start()
     {
@@ -25,6 +26,7 @@ public class InterfaceSolo : MonoBehaviour
         timerwalls = rb.GetComponent<PlayerControllerSolo>().tpsBonus4 - Time.time + 7;
 
         timersafe = rb.GetComponent<WallCreaterSolo>().tpsSafe - Time.time + 5;
+        timerstart = rb.GetComponent<PlayerControllerSolo>().tpsStart - Time.time + 5;
     }
 
     public Texture robot;
@@ -90,6 +92,20 @@ public class InterfaceSolo : MonoBehaviour
             GUI.skin.box = SafeZoneskin.box;
 
             GUI.Box(new Rect(Screen.width - 100, (Screen.height / 2) - 245, 75, 75), timersafe.ToString("0"));
+        }
+
+        if (timerstart >= 0.0f && rb.GetComponent<PlayerControllerSolo>().isStopped)
+        {
+            if (timerstart >= 3.0f)
+            {
+                GUI.skin.box = Normalskin.box;
+                GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2, 300, 50), "GET READY");
+            }
+            else
+            {
+                GUI.skin.box = Normalskin.box;
+                GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2, 300, 50), timerstart.ToString("0"));
+            }
         }
     }
 }

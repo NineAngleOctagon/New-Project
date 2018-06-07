@@ -26,10 +26,16 @@ public class PlayerControllerSolo : MonoBehaviour
     public bool ghostBonus = false;
     public bool bigWall = false;
 
+    public float tpsStart;
+    public bool isStopped;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        rb.velocity = new Vector3(0, 0, 0);
+
+        tpsStart = Time.time;
+        isStopped = true;
 
         GetComponent<MeshRenderer>().material.color = new Color(0, 0, 255, 255);
         GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
@@ -37,6 +43,15 @@ public class PlayerControllerSolo : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isStopped)
+        {
+            if (!(Time.time - tpsStart <= 5.0f))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+                isStopped = false;
+            }
+        }
+
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)
         {
             moveSpeed /= 1.5f;
