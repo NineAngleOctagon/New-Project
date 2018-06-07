@@ -35,7 +35,7 @@ public class Bot : MonoBehaviour
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
-            rb.GetComponent<WallCreater>().frequency += 1;
+            rb.GetComponent<WallCreaterBot>().frequency += 1;
             fastBonus = false;
         }
 
@@ -43,8 +43,8 @@ public class Bot : MonoBehaviour
         {
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
-            rb.GetComponent<WallCreater>().frequency -= 1;
-            rb.GetComponent<WallCreater>().distance = 6;
+            rb.GetComponent<WallCreaterBot>().frequency -= 1;
+            rb.GetComponent<WallCreaterBot>().distance = 6;
             slowBonus = false;
         }
 
@@ -349,7 +349,7 @@ public class Bot : MonoBehaviour
             tpsBonus4 = 0;
         }
 
-        if (collision.collider.name == "Bonus1(Clone)" && !fastBonus)
+        if (collision.collider.name == "Bonus1 Solo(Clone)" && !fastBonus)
         {
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
@@ -358,7 +358,7 @@ public class Bot : MonoBehaviour
             tpsBonus1 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus2(Clone)" && !slowBonus)
+        if (collision.collider.name == "Bonus2 Solo(Clone)" && !slowBonus)
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
@@ -368,13 +368,13 @@ public class Bot : MonoBehaviour
             tpsBonus2 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus3(Clone)" && !ghostBonus)
+        if (collision.collider.name == "Bonus3 Solo(Clone)" && !ghostBonus)
         {
             ghostBonus = true;
             tpsBonus3 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus4(Clone)" && !bigWall)
+        if (collision.collider.name == "Bonus4 Solo(Clone)" && !bigWall)
         {
             bigWall = true;
             tpsBonus4 = Time.time;

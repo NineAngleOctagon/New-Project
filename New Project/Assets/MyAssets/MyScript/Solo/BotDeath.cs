@@ -30,7 +30,7 @@ public class BotDeath : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Cube(Clone)")
+        if (collision.gameObject.name == "Cube Solo(Clone)")
         {
             if (!rb.GetComponent<Bot>().ghostBonus)
             {
@@ -48,7 +48,7 @@ public class BotDeath : MonoBehaviour
             }
         }
 
-        if (collision.gameObject.name == "Player(Clone)" || collision.gameObject.name == "'Bot'")
+        if (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'")
         {
             isOver = true;
 
@@ -56,7 +56,7 @@ public class BotDeath : MonoBehaviour
             rb.isKinematic = true;
         }
 
-        if (collision.collider.name == "Bonus1(Clone)" || collision.collider.name == "Bonus2(Clone)" || collision.collider.name == "Bonus3(Clone)" || collision.collider.name == "Bonus4(Clone)")
+        if (collision.collider.name == "Bonus1 Solo(Clone)" || collision.collider.name == "Bonus2 Solo(Clone)" || collision.collider.name == "Bonus3 Solo(Clone)" || collision.collider.name == "Bonus4 Solo(Clone)")
         {
             collision.collider.gameObject.SetActive(false);
             rb.transform.rotation = rotPlayer;

@@ -31,18 +31,18 @@ public class GameOverSolo : MonoBehaviour
         {
             isOver = true;
 
-            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.GetComponent<PlayerControllerSolo>().moveSpeed = 0;
             rb.isKinematic = true;
 
             PlayerCam.transform.position = new Vector3(0, 150, 0);
             PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
         }
 
-        if (!isOver && (Time.time - rb.GetComponent<WallCreater>().tpsSafe >= 5.0f && rb.GetComponent<WallCreater>().isSafe))
+        if (!isOver && (Time.time - rb.GetComponent<WallCreaterSolo>().tpsSafe >= 5.0f && rb.GetComponent<WallCreaterSolo>().isSafe))
         {
             isOver = true;
 
-            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.GetComponent<PlayerControllerSolo>().moveSpeed = 0;
             rb.isKinematic = true;
 
             PlayerCam.transform.position = new Vector3(0, 150, 0);
@@ -60,8 +60,8 @@ public class GameOverSolo : MonoBehaviour
             }
             if (numbers == 2)
             {
-                bool playerzero = players[0].GetComponent<GameOver>().isOver;
-                bool playerone = players[1].GetComponent<GameOver>().isOver;
+                bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
 
                 if (playerzero && playerone)
                 {
@@ -74,9 +74,9 @@ public class GameOverSolo : MonoBehaviour
             }
             if (numbers == 3)
             {
-                bool playerzero = players[0].GetComponent<GameOver>().isOver;
-                bool playerone = players[1].GetComponent<GameOver>().isOver;
-                bool playertwo = players[2].GetComponent<GameOver>().isOver;
+                bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
+                bool playertwo = players[2].GetComponent<GameOverSolo>().isOver;
 
                 if (playerzero && playerone && playertwo)
                 {
@@ -98,10 +98,10 @@ public class GameOverSolo : MonoBehaviour
             }
             if (numbers == 4)
             {
-                bool playerzero = players[0].GetComponent<GameOver>().isOver;
-                bool playerone = players[1].GetComponent<GameOver>().isOver;
-                bool playertwo = players[2].GetComponent<GameOver>().isOver;
-                bool playerthree = players[3].GetComponent<GameOver>().isOver;
+                bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
+                bool playerone = players[1].GetComponent<GameOverSolo>().isOver;
+                bool playertwo = players[2].GetComponent<GameOverSolo>().isOver;
+                bool playerthree = players[3].GetComponent<GameOverSolo>().isOver;
 
                 if (playerzero && playerone && playertwo && playerthree)
                 {
@@ -139,13 +139,13 @@ public class GameOverSolo : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!isOver && (collision.gameObject.name == "Cube(Clone)" || collision.gameObject.name == "BigCube(Clone)"))
+        if (!isOver && (collision.gameObject.name == "Cube Solo(Clone)" || collision.gameObject.name == "BigCube Solo(Clone)"))
         {
-            if (!rb.GetComponent<PlayerController>().ghostBonus)
+            if (!rb.GetComponent<PlayerControllerSolo>().ghostBonus)
             {
                 isOver = true;
 
-                rb.GetComponent<PlayerController>().moveSpeed = 0;
+                rb.GetComponent<PlayerControllerSolo>().moveSpeed = 0;
                 rb.isKinematic = true;
 
                 PlayerCam.transform.position = new Vector3(0, 150, 0);
@@ -160,18 +160,18 @@ public class GameOverSolo : MonoBehaviour
             }
         }
 
-        if (!isOver && (collision.gameObject.name == "Player(Clone)" || collision.gameObject.name == "'Bot'"))
+        if (!isOver && (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'"))
         {
             isOver = true;
 
-            rb.GetComponent<PlayerController>().moveSpeed = 0;
+            rb.GetComponent<PlayerControllerSolo>().moveSpeed = 0;
             rb.isKinematic = true;
 
             PlayerCam.transform.position = new Vector3(0, 150, 0);
             PlayerCam.transform.rotation = new Quaternion(0f, -0.7071f, 0.7071f, 0f);
         }
 
-        if (collision.collider.name == "Bonus1(Clone)" || collision.collider.name == "Bonus2(Clone)" || collision.collider.name == "Bonus3(Clone)" || collision.collider.name == "Bonus4(Clone)")
+        if (collision.collider.name == "Bonus1 Solo(Clone)" || collision.collider.name == "Bonus2 Solo(Clone)" || collision.collider.name == "Bonus3 Solo(Clone)" || collision.collider.name == "Bonus4 Solo(Clone)")
         {
             collision.collider.gameObject.SetActive(false);
             rb.transform.rotation = rotPlayer;
@@ -186,26 +186,26 @@ public class GameOverSolo : MonoBehaviour
             if (numbers == 1)
             {
 
-                GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+                GUI.skin.box = rb.GetComponent<InterfaceSolo>().Normalskin.box;
                 GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you won but it wasn't that hard you know");
             }
             else
             {
 
-                GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+                GUI.skin.box = rb.GetComponent<InterfaceSolo>().Normalskin.box;
                 GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you won");
             }
         }
         if (second)
         {
 
-            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.skin.box = rb.GetComponent<InterfaceSolo>().Normalskin.box;
             GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you nearly won");
         }
         if (third)
         {
 
-            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.skin.box = rb.GetComponent<InterfaceSolo>().Normalskin.box;
             GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you nearly lost");
         }
         if (last)

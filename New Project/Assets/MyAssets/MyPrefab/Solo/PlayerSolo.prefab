@@ -41,13 +41,13 @@ GameObject:
   - component: {fileID: 23440148222638854}
   - component: {fileID: 54656310210862952}
   - component: {fileID: 114527827416865608}
+  - component: {fileID: 114203490061425178}
   - component: {fileID: 114140967086277296}
   - component: {fileID: 114271334276684080}
   - component: {fileID: 114790133394356174}
   - component: {fileID: 114457852749934682}
   - component: {fileID: 65885558674166584}
   - component: {fileID: 96473863286439270}
-  - component: {fileID: 114203490061425178}
   m_Layer: 0
   m_Name: PlayerSolo
   m_TagString: Player
@@ -306,6 +306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54656310210862952}
+  frequency: 10
+  distance: 2
   originalCube: {fileID: 1082202574479132, guid: 57812b69dab35b84995dd1325c897474,
     type: 2}
   myBigCube: {fileID: 1994641359049270, guid: 2ae2a60630781344785bc96437d9efde, type: 2}
@@ -344,7 +346,7 @@ MonoBehaviour:
   SafeZoneskin: {fileID: 11400000, guid: 3b7c3b71ff00f234caf78f2766695099, type: 2}
   Normalskin: {fileID: 11400000, guid: 4331dbba7ad0ca64994c9e2d6a77e7eb, type: 2}
   Speedskin: {fileID: 11400000, guid: 6ed11c97ddd71d44aad11bd020eecfdd, type: 2}
-  Slowskin: {fileID: 11400000, guid: 6ed11c97ddd71d44aad11bd020eecfdd, type: 2}
+  Slowskin: {fileID: 11400000, guid: 9b9bf1d70b1de70458c8af53fe998aee, type: 2}
   Gohstskin: {fileID: 11400000, guid: c46ea5d11f8c36d469400a9b5af86ed1, type: 2}
   BigWallskin: {fileID: 11400000, guid: 6ac71a71e7f56624787c536f9e18f51f, type: 2}
 --- !u!114 &114527827416865608

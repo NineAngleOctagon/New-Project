@@ -8,12 +8,12 @@ public class GameOverControllerSolo : MonoBehaviour
 
     private void Start()
     {
-        PlayerCam = GetComponent<GameOver>().PlayerCam;
+        PlayerCam = GetComponent<GameOverSolo>().PlayerCam;
     }
 
     void Update()
     {
-        isOver = GetComponent<GameOver>().isOver;
+        isOver = GetComponent<GameOverSolo>().isOver;
 
         if (isOver)
         {

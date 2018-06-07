@@ -5,30 +5,38 @@ public class WallCreaterBot : MonoBehaviour
     public Rigidbody rb;
     private TrailRenderer trail;
     private int gapTrail;
-    private int frequency;
-    private int distance;
+    public int frequency;
+    public int distance;
+    public GameObject originalCube;
+    public GameObject myBigCube;
+    private bool bigWall;
+
+    public bool isSafe = false;
+    public float tpsSafe;
 
     private void Start()
     {
         gapTrail = 10;
         frequency = 2;
-        distance = 10;
+        distance = 6;
     }
+
     void Update()
     {
+        bigWall = rb.GetComponent<Bot>().bigWall;
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
         {
-            GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            GameObject cube = originalCube;
 
-            cube.AddComponent<Rigidbody>();
-            cube.AddComponent<BoxCollider>();
-            cube.GetComponent<BoxCollider>().isTrigger = true;
-            cube.GetComponent<BoxCollider>().size = new Vector3(3.5f, 3.5f, 3.5f);
-            cube.GetComponent<Rigidbody>().mass = int.MaxValue;
-            cube.GetComponent<Rigidbody>().useGravity = false;
+            if (bigWall)
+            {
+                cube = myBigCube;
+            }
+
             Vector3 pos = trail.GetPosition(trail.positionCount - distance);
+
             if ((pos.x <= -15 || pos.x >= 15 || pos.z <= 45)
                 && (pos.x <= -15 || pos.x >= 15 || pos.z >= -45)
                 && (pos.x <= -315 || pos.x >= -285 || pos.z <= -155)
@@ -37,25 +45,31 @@ public class WallCreaterBot : MonoBehaviour
                 && (pos.x >= 252.5 || pos.x <= 222.5 || pos.z <= -255)
                 && pos.y <= 30)
             {
-                cube.transform.position = pos;
                 gapTrail = trail.positionCount + frequency;
 
                 cube.GetComponent<Rigidbody>().isKinematic = true;
 
                 cube.layer = 1;
 
-                cube.GetComponent<MeshRenderer>().enabled = false;
+                cube.GetComponent<MeshRenderer>().enabled = true;
+
+                isSafe = false;
+                if (!bigWall)
+                {
+                    Instantiate(cube, pos, Quaternion.identity);
+                }
+                else
+                {
+                    Instantiate(cube, new Vector3(pos.x, pos.y + 2.5f, pos.z), Quaternion.identity);
+                }
             }
             else
             {
-                Destroy(cube);
-            }
-
-
-            if (rb.GetComponent<Bot>().bigWall)
-            {
-                cube.transform.localScale = new Vector3(1.0f, 5.0f, 1.0f);
-                cube.transform.position = new Vector3(cube.transform.position.x, 4.0f, cube.transform.position.z);
+                if (!isSafe)
+                {
+                    tpsSafe = Time.time;
+                    isSafe = true;
+                }
             }
         }
     }

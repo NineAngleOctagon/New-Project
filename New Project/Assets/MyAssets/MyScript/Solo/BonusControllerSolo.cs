@@ -18,7 +18,7 @@ public class BonusControllerSolo : MonoBehaviour
 
     void Update()
     {
-        if (Time.time - tpsBonus >= gapBonus && !rb.GetComponent<GameOver>().isOver)
+        if (Time.time - tpsBonus >= gapBonus && !rb.GetComponent<GameOverSolo>().isOver)
         {
             float platform = Random.Range(0.0f, 3.0f);
 

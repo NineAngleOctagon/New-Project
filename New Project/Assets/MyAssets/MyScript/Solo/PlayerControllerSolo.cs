@@ -41,7 +41,7 @@ public class PlayerControllerSolo : MonoBehaviour
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
-            rb.GetComponent<WallCreater>().frequency += 1;
+            rb.GetComponent<WallCreaterSolo>().frequency += 1;
             fastBonus = false;
         }
 
@@ -49,8 +49,8 @@ public class PlayerControllerSolo : MonoBehaviour
         {
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
-            rb.GetComponent<WallCreater>().frequency -= 1;
-            rb.GetComponent<WallCreater>().distance = 6;
+            rb.GetComponent<WallCreaterSolo>().frequency -= 1;
+            rb.GetComponent<WallCreaterSolo>().distance = 6;
             slowBonus = false;
         }
 
@@ -64,7 +64,7 @@ public class PlayerControllerSolo : MonoBehaviour
             bigWall = false;
         }
 
-        if (!rb.GetComponent<GameOver>().isOver)
+        if (!rb.GetComponent<GameOverSolo>().isOver)
         {
             if (Input.GetKey("d") && Time.time - tps >= gap && rb.position.y >= 0.49999 && rb.position.y <= 0.50001)
             {
@@ -378,32 +378,32 @@ public class PlayerControllerSolo : MonoBehaviour
             tpsBonus4 = 0;
         }
 
-        if (collision.collider.name == "Bonus1(Clone)" && !fastBonus)
+        if (collision.collider.name == "Bonus1 Solo(Clone)" && !fastBonus)
         {
             moveSpeed *= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x * 1.5f, rb.velocity.y, rb.velocity.z * 1.5f);
             fastBonus = true;
-            rb.GetComponent<WallCreater>().frequency -= 1;
+            rb.GetComponent<WallCreaterSolo>().frequency -= 1;
             tpsBonus1 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus2(Clone)" && !slowBonus)
+        if (collision.collider.name == "Bonus2 Solo(Clone)" && !slowBonus)
         {
             moveSpeed /= 1.5f;
             rb.velocity = new Vector3(rb.velocity.x / 1.5f, rb.velocity.y, rb.velocity.z / 1.5f);
-            rb.GetComponent<WallCreater>().distance = 10;
-            rb.GetComponent<WallCreater>().frequency += 1;
+            rb.GetComponent<WallCreaterSolo>().distance = 10;
+            rb.GetComponent<WallCreaterSolo>().frequency += 1;
             slowBonus = true;
             tpsBonus2 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus3(Clone)" && !ghostBonus)
+        if (collision.collider.name == "Bonus3 Solo(Clone)" && !ghostBonus)
         {
             ghostBonus = true;
             tpsBonus3 = Time.time;
             collision.collider.gameObject.SetActive(false);
         }
-        if (collision.collider.name == "Bonus4(Clone)" && !bigWall)
+        if (collision.collider.name == "Bonus4 Solo(Clone)" && !bigWall)
         {
             bigWall = true;
             tpsBonus4 = Time.time;

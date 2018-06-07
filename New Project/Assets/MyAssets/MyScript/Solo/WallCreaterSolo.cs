@@ -5,8 +5,8 @@ public class WallCreaterSolo : MonoBehaviour
     public Rigidbody rb;
     private TrailRenderer trail;
     private int gapTrail;
-    private int frequency;
-    private int distance;
+    public int frequency;
+    public int distance;
     public GameObject originalCube;
     public GameObject myBigCube;
     private bool bigWall;
@@ -16,8 +16,8 @@ public class WallCreaterSolo : MonoBehaviour
 
     private void Start()
     {
-        gapTrail = 6;
-        frequency = 1;
+        gapTrail = 10;
+        frequency = 2;
         distance = 6;
     }
 

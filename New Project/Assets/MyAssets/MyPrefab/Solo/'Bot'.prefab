@@ -31,7 +31,7 @@ GameObject:
   - component: {fileID: 114179255023208040}
   m_Layer: 0
   m_Name: '''Bot'''
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1823497228359484}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 29.1, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -277,3 +277,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 54586870453742488}
+  frequency: 10
+  distance: 2
+  originalCube: {fileID: 1082202574479132, guid: 57812b69dab35b84995dd1325c897474,
+    type: 2}
+  myBigCube: {fileID: 1994641359049270, guid: 2ae2a60630781344785bc96437d9efde, type: 2}
+  isSafe: 0
+  tpsSafe: 0

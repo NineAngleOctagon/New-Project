@@ -19,12 +19,12 @@ public class InterfaceSolo : MonoBehaviour
 
     void Update()
     {
-        timerfast = rb.GetComponent<PlayerController>().tpsBonus1 - Time.time + 7;
-        timerslow = rb.GetComponent<PlayerController>().tpsBonus2 - Time.time + 7;
-        timerghost = rb.GetComponent<PlayerController>().tpsBonus3 - Time.time + 7;
-        timerwalls = rb.GetComponent<PlayerController>().tpsBonus4 - Time.time + 7;
+        timerfast = rb.GetComponent<PlayerControllerSolo>().tpsBonus1 - Time.time + 7;
+        timerslow = rb.GetComponent<PlayerControllerSolo>().tpsBonus2 - Time.time + 7;
+        timerghost = rb.GetComponent<PlayerControllerSolo>().tpsBonus3 - Time.time + 7;
+        timerwalls = rb.GetComponent<PlayerControllerSolo>().tpsBonus4 - Time.time + 7;
 
-        timersafe = rb.GetComponent<WallCreater>().tpsSafe - Time.time + 5;
+        timersafe = rb.GetComponent<WallCreaterSolo>().tpsSafe - Time.time + 5;
     }
 
     public Texture robot;
@@ -85,7 +85,7 @@ public class InterfaceSolo : MonoBehaviour
             }
         }
 
-        if (timersafe >= 0.0f && rb.GetComponent<WallCreater>().isSafe)
+        if (timersafe >= 0.0f && rb.GetComponent<WallCreaterSolo>().isSafe)
         {
             GUI.skin.box = SafeZoneskin.box;
 

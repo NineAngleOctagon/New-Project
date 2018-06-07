@@ -14,3 +14,24 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/MyAssets/MyScenes/Game.unity
     guid: aca2000b820be8e449a9ad4b395548dc
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Training.unity
+    guid: 4a30b3f6524273b42824c38946f9869a
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo1AI1.unity
+    guid: 484b2624213b26b4fbbfd85c47c62fb8
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo1AI2.unity
+    guid: e35c9ac801e9ba14c92538935bbc4301
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo2AI1.unity
+    guid: 1dda7648f108b2c4ca61dd5dd6a9da3c
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo2AI2.unity
+    guid: b1e3534c37bdf6c4eb4d535c80cb0d3e
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo3AI1.unity
+    guid: 8368ed4f9cc2b3f4494aab46de74d557
+  - enabled: 1
+    path: Assets/MyAssets/MyScenes/Solo3AI2.unity
+    guid: 0bb46f99dd36b62439610e1d007cb30b
