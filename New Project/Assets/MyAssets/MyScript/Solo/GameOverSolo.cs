@@ -211,7 +211,7 @@ public class GameOverSolo : MonoBehaviour
         if (last)
         {
 
-            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.skin.box = rb.GetComponent<InterfaceSolo>().Normalskin.box;
             GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you are bad");
         }
     }
