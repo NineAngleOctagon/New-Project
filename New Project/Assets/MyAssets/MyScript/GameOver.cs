@@ -196,29 +196,34 @@ public class GameOver : NetworkBehaviour
         {
             if (numbers == 1)
             {
-                GUI.skin.box.fontSize = 25;
-                GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2, 100, 100), "you won but it wasn't that hard you know");
+                
+                GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+                GUI.Box(new Rect(0 , Screen.height / 2, Screen.width, 100), "you won but it wasn't that hard you know");
             }
             else
             {
-                GUI.skin.box.fontSize = 25;
-                GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2, 100, 100), "you won");
+
+                GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+                GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you won");
             }
         }
         if (second)
         {
-            GUI.skin.box.fontSize = 25;
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2, 100, 100), "you nearly won");
+
+            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you nearly won");
         }
         if (third)
         {
-            GUI.skin.box.fontSize = 25;
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2, 100, 100), "you nearly lost");
+
+            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you nearly lost");
         }
         if (last)
         {
-            GUI.skin.box.fontSize = 25;
-            GUI.Box(new Rect(Screen.width / 2 - 100, Screen.height / 2, 100, 100), "you are bad");
+
+            GUI.skin.box = rb.GetComponent<Interface>().Normalskin.box;
+            GUI.Box(new Rect(0, Screen.height / 2, Screen.width, 100), "you are bad");
         }
     }
 
