@@ -25,15 +25,29 @@ public class MoveBot : MonoBehaviour {
     public bool bigWall = false;
 
     private float tpsmovebot;
+    public float tpsStart;
+    public bool isStopped;
 
     private void Start()
     {
-        rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+        rb.velocity = new Vector3(0, 0, 0);
         tpsmovebot = Time.time;
+
+        tpsStart = Time.time;
+        isStopped = true;
     }
 
     private void FixedUpdate()
     {
+        if (isStopped)
+        {
+            if (!(Time.time - tpsStart <= 5.0f))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+                isStopped = false;
+            }
+        }
+
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)
         {
             moveSpeed /= 1.5f;
@@ -61,7 +75,7 @@ public class MoveBot : MonoBehaviour {
             bigWall = false;
         }
         
-        if (rb.transform.position.y > 0.49 && rb.transform.position.y < 0.51 && Time.time - tpsmovebot >= 2f)
+        if (rb.transform.position.y > 0.49 && rb.transform.position.y < 0.51 && Time.time - tpsmovebot >= 1f)
         {
             int move = (int)Random.Range(0f, 4.0f);
             switch (move)

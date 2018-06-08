@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class BotDeath : MonoBehaviour
+public class BotDeath2 : MonoBehaviour
 {
     public Rigidbody rb;
     public bool isOver;
@@ -22,7 +22,7 @@ public class BotDeath : MonoBehaviour
         {
             isOver = true;
 
-            rb.GetComponent<Bot>().moveSpeed = 0;
+            rb.GetComponent<MoveBot>().moveSpeed = 0;
             rb.isKinematic = true;
         }
     }
@@ -31,11 +31,11 @@ public class BotDeath : MonoBehaviour
     {
         if (collision.gameObject.name == "Cube Solo(Clone)")
         {
-            if (!rb.GetComponent<Bot>().ghostBonus)
+            if (!rb.GetComponent<MoveBot>().ghostBonus)
             {
                 isOver = true;
 
-                rb.GetComponent<Bot>().moveSpeed = 0;
+                rb.GetComponent<MoveBot>().moveSpeed = 0;
                 rb.isKinematic = true;
             }
             else
@@ -52,7 +52,7 @@ public class BotDeath : MonoBehaviour
         {
             isOver = true;
 
-            rb.GetComponent<Bot>().moveSpeed = 0;
+            rb.GetComponent<MoveBot>().moveSpeed = 0;
             rb.isKinematic = true;
         }
 
@@ -64,4 +64,3 @@ public class BotDeath : MonoBehaviour
         }
     }
 }
-

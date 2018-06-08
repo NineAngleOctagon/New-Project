@@ -22,15 +22,30 @@ public class Bot : MonoBehaviour
     public bool ghostBonus = false;
     public bool bigWall = false;
 
+    public float tpsStart;
+    public bool isStopped;
+
     void Start ()
     {
-        rb.velocity = new Vector3(25, rb.velocity.y, 0);
+        rb.velocity = new Vector3(0, 0, 0);
         moveSpeed = 25;
         factor = Mathf.Sqrt(2) / 2;
-	}
+
+        tpsStart = Time.time;
+        isStopped = true;
+    }
 
     void FixedUpdate()
     {
+        if (isStopped)
+        {
+            if (!(Time.time - tpsStart <= 5.0f))
+            {
+                rb.velocity = new Vector3(rb.velocity.x, rb.velocity.y, moveSpeed);
+                isStopped = false;
+            }
+        }
+
         if (fastBonus && Time.time - tpsBonus1 >= 7.0f)
         {
             moveSpeed /= 1.5f;

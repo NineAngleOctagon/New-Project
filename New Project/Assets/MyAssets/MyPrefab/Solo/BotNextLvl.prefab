@@ -119,10 +119,10 @@ GameObject:
   - component: {fileID: 65039295701403900}
   - component: {fileID: 114177153495120708}
   - component: {fileID: 114242138338716486}
+  - component: {fileID: 114628267794274338}
+  - component: {fileID: 114836981049542430}
   - component: {fileID: 54460276741409370}
   - component: {fileID: 96442370299029970}
-  - component: {fileID: 114628267794274338}
-  - component: {fileID: 114530745743295154}
   m_Layer: 0
   m_Name: BotNextLvl
   m_TagString: Player
@@ -202,7 +202,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1997645827067014}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4108622554086246}
@@ -691,6 +691,8 @@ MonoBehaviour:
   tpsBonus4: 0
   ghostBonus: 0
   bigWall: 0
+  tpsStart: 0
+  isStopped: 0
 --- !u!114 &114376145180769038
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -705,19 +707,6 @@ MonoBehaviour:
   detected: 0
   cube: {fileID: 1917522859164118}
   bot: {fileID: 1997645827067014}
---- !u!114 &114530745743295154
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1997645827067014}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c31455bb8af8a5844b05ed1979e81d23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 54460276741409370}
-  isOver: 0
 --- !u!114 &114536255342341704
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -751,6 +740,19 @@ MonoBehaviour:
   myBigCube: {fileID: 1994641359049270, guid: 2ae2a60630781344785bc96437d9efde, type: 2}
   isSafe: 0
   tpsSafe: 0
+--- !u!114 &114836981049542430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1997645827067014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d211fc929e4f9db49a42032cfe04f788, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 54460276741409370}
+  isOver: 0
 --- !u!114 &114919980645781588
 MonoBehaviour:
   m_ObjectHideFlags: 1

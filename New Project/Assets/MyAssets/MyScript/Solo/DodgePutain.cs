@@ -26,7 +26,6 @@ public class DodgePutain : MonoBehaviour {
         tps = Time.time;
     }
 
-    // Update is called once per frame
     void Update () {
         bool_Left = left.GetComponent<Idetectedsmth>().detected;
         bool_Right = right.GetComponent<Idetectedsmth>().detected;
@@ -34,7 +33,7 @@ public class DodgePutain : MonoBehaviour {
         bool_Front_Left = front_Left.GetComponent<Idetectedsmth>().detected;
         bool_Front_Right = front_Right.GetComponent<Idetectedsmth>().detected;
 
-        if (this.transform.position.y < 0.51 && this.transform.position.y > 0.49)
+        if (this.transform.position.y < 0.51 && this.transform.position.y > 0.49 && Time.time - tps >= 0.075f)
         {
             rb.GetComponent<MoveBot>().enabled = true;
             if (bool_Front_Left && bool_Left && !bool_Right)

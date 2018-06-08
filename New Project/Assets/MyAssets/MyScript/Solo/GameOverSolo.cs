@@ -74,9 +74,24 @@ public class GameOverSolo : MonoBehaviour
             }
             if (numbers == 3)
             {
-                bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
-                bool playerone = players[1].GetComponent<BotDeath>().isOver;
-                bool playertwo = players[2].GetComponent<BotDeath>().isOver;
+                bool playerzero;
+                bool playerone;
+                bool playertwo;
+
+                if (players[0].name == "PlayerSolo")
+                    playerzero = players[0].GetComponent<GameOverSolo>().isOver;
+                else
+                    playerzero = players[0].GetComponent<BotDeath>().isOver;
+
+                if (players[1].name == "PlayerSolo")
+                    playerone = players[1].GetComponent<GameOverSolo>().isOver;
+                else
+                    playerone = players[1].GetComponent<BotDeath>().isOver;
+
+                if (players[2].name == "PlayerSolo")
+                    playertwo = players[2].GetComponent<GameOverSolo>().isOver;
+                else
+                    playertwo = players[2].GetComponent<BotDeath>().isOver;
 
                 if (playerzero && playerone && playertwo)
                 {
@@ -98,10 +113,50 @@ public class GameOverSolo : MonoBehaviour
             }
             if (numbers == 4)
             {
-                bool playerzero = players[0].GetComponent<GameOverSolo>().isOver;
-                bool playerone = players[1].GetComponent<BotDeath>().isOver;
-                bool playertwo = players[2].GetComponent<BotDeath>().isOver;
-                bool playerthree = players[3].GetComponent<BotDeath>().isOver;
+                bool playerzero;
+                bool playerone;
+                bool playertwo;
+                bool playerthree;
+
+                if (players[0].name == "PlayerSolo")
+                    playerzero = players[0].GetComponent<GameOverSolo>().isOver;
+                else
+                {
+                    if (players[0].name == "BotNextLvl" || players[0].name == "BotNextLvl (1)" || players[0].name == "BotNextLvl (2)")
+                        playerzero = players[0].GetComponent<BotDeath2>().isOver;
+                    else
+                        playerzero = players[0].GetComponent<BotDeath>().isOver;
+                }
+
+                if (players[1].name == "PlayerSolo")
+                    playerone = players[1].GetComponent<GameOverSolo>().isOver;
+                else
+                {
+                    if (players[1].name == "BotNextLvl" || players[1].name == "BotNextLvl (1)" || players[1].name == "BotNextLvl (2)")
+                        playerone = players[1].GetComponent<BotDeath2>().isOver;
+                    else
+                        playerone = players[1].GetComponent<BotDeath>().isOver;
+                }
+
+                if (players[2].name == "PlayerSolo")
+                    playertwo = players[2].GetComponent<GameOverSolo>().isOver;
+                else
+                {
+                    if (players[2].name == "BotNextLvl" || players[2].name == "BotNextLvl (1)" || players[2].name == "BotNextLvl (2)")
+                        playertwo = players[2].GetComponent<BotDeath2>().isOver;
+                    else
+                        playertwo = players[2].GetComponent<BotDeath>().isOver;
+                }
+
+                if (players[3].name == "PlayerSolo")
+                    playerthree = players[3].GetComponent<GameOverSolo>().isOver;
+                else
+                {
+                    if (players[3].name == "BotNextLvl" || players[3].name == "BotNextLvl (1)" || players[3].name == "BotNextLvl (2)")
+                        playerthree = players[3].GetComponent<BotDeath2>().isOver;
+                    else
+                        playerthree = players[3].GetComponent<BotDeath>().isOver;
+                }
 
                 if (playerzero && playerone && playertwo && playerthree)
                 {
@@ -160,7 +215,8 @@ public class GameOverSolo : MonoBehaviour
             }
         }
 
-        if (!isOver && (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'" || collision.gameObject.name == "BotNextLvl"))
+        if (!isOver && (collision.gameObject.name == "Player Solo(Clone)" || collision.gameObject.name == "'Bot'" || collision.gameObject.name == "'Bot' (1)" || collision.gameObject.name == "'Bot' (2)"
+            || collision.gameObject.name == "BotNextLvl" || collision.gameObject.name == "BotNextLvl (1)" || collision.gameObject.name == "BotNextLvl (2)"))
         {
             isOver = true;
 
