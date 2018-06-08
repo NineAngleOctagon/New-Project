@@ -28,6 +28,7 @@ GameObject:
   - component: {fileID: 114996874934121892}
   - component: {fileID: 114833063484445474}
   - component: {fileID: 114294336064579386}
+  - component: {fileID: 114216795990988832}
   - component: {fileID: 65508655440505202}
   - component: {fileID: 114731424460669740}
   - component: {fileID: 114492096926530390}
@@ -296,6 +297,7 @@ MonoBehaviour:
   rb: {fileID: 54700000937635832}
   PlayerCam: {fileID: 20241536934522946}
   isOver: 0
+  players: []
 --- !u!114 &114185259184210116
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -315,6 +317,21 @@ MonoBehaviour:
   myBigCube: {fileID: 1541086555042234, guid: 65328dce01381d44d80019f41a265cc4, type: 2}
   isSafe: 0
   tpsSafe: 0
+--- !u!114 &114216795990988832
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395466172365334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eadce5f8ea5c0a340a356efd274ba982, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restart: {fileID: 1684019639760826, guid: af2ac95ef83cd3444886754d0fb86bfc, type: 2}
+  MenuButton: {fileID: 1754145747330082, guid: af2ac95ef83cd3444886754d0fb86bfc, type: 2}
+  PlayAgainButton: {fileID: 1552007956923204, guid: af2ac95ef83cd3444886754d0fb86bfc,
+    type: 2}
 --- !u!114 &114294336064579386
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,6 +373,8 @@ MonoBehaviour:
   tpsBonus4: 0
   ghostBonus: 0
   bigWall: 0
+  tpsStart: 0
+  isStopped: 0
 --- !u!114 &114492096926530390
 MonoBehaviour:
   m_ObjectHideFlags: 1

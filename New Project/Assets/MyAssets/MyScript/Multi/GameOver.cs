@@ -9,7 +9,7 @@ public class GameOver : NetworkBehaviour
     public bool isOver;
     private Vector3 speed;
     private Quaternion rotPlayer;
-    private GameObject[] players;
+    public GameObject[] players;
     private int numbers;
     private bool first;
     private bool second;

@@ -38,27 +38,27 @@ public class DodgePutain : MonoBehaviour {
             rb.GetComponent<MoveBot>().enabled = true;
             if (bool_Front_Left && bool_Left && !bool_Right)
             {
-                Turn_Left();
+                Turn_Right();
                 tps = Time.time;
                 rb.GetComponent<MoveBot>().enabled = false;
             }
 
             if (bool_Front_Right && bool_Right && !bool_Left)
             {
-                Turn_Right();
+                Turn_Left();
                 tps = Time.time;
                 rb.GetComponent<MoveBot>().enabled = false;
             }
             if (!bool_Left && !bool_Right && !bool_Front_Right && bool_Front_Left)
             {
-                Turn_Front_Left();
+                Turn_Front_Right();
                 tps = Time.time;
                 rb.GetComponent<MoveBot>().enabled = false;
             }
 
             if (!bool_Left && !bool_Right && !bool_Front_Left && bool_Front_Right)
             {
-                Turn_Front_Right();
+                Turn_Front_Left();
                 tps = Time.time;
                 rb.GetComponent<MoveBot>().enabled = false;
             }
@@ -72,7 +72,7 @@ public class DodgePutain : MonoBehaviour {
 
             if (bool_Front_Left && bool_Front_Right && !bool_Front && !bool_Left && !bool_Right)
             {
-                Turn_Left();
+                Turn_Right();
                 tps = Time.time;
                 rb.GetComponent<MoveBot>().enabled = false;
             }
@@ -85,7 +85,7 @@ public class DodgePutain : MonoBehaviour {
         }
     }
 
-    public void Turn_Left()
+    public void Turn_Right()
     {
         transform.Rotate(new Vector3(0, 90, 0));
         if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -122,7 +122,7 @@ public class DodgePutain : MonoBehaviour {
         }
     }
 
-    public void Turn_Right()
+    public void Turn_Left()
     {
         transform.Rotate(new Vector3(0, -90, 0));
         if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -159,7 +159,7 @@ public class DodgePutain : MonoBehaviour {
         }
     }
 
-    public void Turn_Front_Left()
+    public void Turn_Front_Right()
     {
         transform.Rotate(new Vector3(0, 45, 0));
         if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))
@@ -196,7 +196,7 @@ public class DodgePutain : MonoBehaviour {
         }
     }
 
-    public void Turn_Front_Right()
+    public void Turn_Front_Left()
     {
         transform.Rotate(new Vector3(0, -45, 0));
         if (rb.velocity == new Vector3(0, rb.velocity.y, moveSpeed))

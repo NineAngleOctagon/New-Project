@@ -75,7 +75,7 @@ public class MoveBot : MonoBehaviour {
             bigWall = false;
         }
         
-        if (rb.transform.position.y > 0.49 && rb.transform.position.y < 0.51 && Time.time - tpsmovebot >= 1f)
+        if (rb.transform.position.y > 0.49 && rb.transform.position.y < 0.51 && Time.time - tpsmovebot >= 2f)
         {
             int move = (int)Random.Range(0f, 4.0f);
             switch (move)

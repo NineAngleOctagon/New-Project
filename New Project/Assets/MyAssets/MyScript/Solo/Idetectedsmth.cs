@@ -8,6 +8,11 @@ public class Idetectedsmth : MonoBehaviour {
     public GameObject cube;
     public GameObject bot;
 
+    private void Start()
+    {
+        detected = false;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         detected = true;

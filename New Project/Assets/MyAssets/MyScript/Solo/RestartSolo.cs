@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Restart : MonoBehaviour
+public class RestartSolo : MonoBehaviour
 {
     public Rigidbody rb;
     public GameObject restart;

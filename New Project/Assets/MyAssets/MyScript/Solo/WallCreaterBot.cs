@@ -18,7 +18,7 @@ public class WallCreaterBot : MonoBehaviour
     {
         gapTrail = 10;
         frequency = 2;
-        distance = 6;
+        distance = 10;
     }
 
     void Update()
