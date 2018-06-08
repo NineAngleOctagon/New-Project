@@ -270,7 +270,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -380, y: -125}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &133137035
 MonoBehaviour:
@@ -292,8 +292,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -658,7 +658,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 380, y: -125}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 200, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &237105993
 MonoBehaviour:
@@ -680,8 +680,8 @@ MonoBehaviour:
   m_Transition: 1
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_HighlightedColor: {r: 1, g: 1, b: 1, a: 0.19607843}
+    m_PressedColor: {r: 1, g: 1, b: 1, a: 0.39215687}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
@@ -976,11 +976,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 412530241}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f911439a0e32804a820842a2bfe93cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 469986c5f83b2704ba578aa059e25e41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 412530251}
   restart: {fileID: 100142899}
+--- !u!114 &412530243
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412530241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a92218f0ceffbc54ab7b58db1fcd907a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 412530251}
+  PlayerCam: {fileID: 1844953429}
+  isOver: 0
 --- !u!114 &412530245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1000,6 +1014,77 @@ MonoBehaviour:
   Slowskin: {fileID: 11400000, guid: 9b9bf1d70b1de70458c8af53fe998aee, type: 2}
   Gohstskin: {fileID: 11400000, guid: c46ea5d11f8c36d469400a9b5af86ed1, type: 2}
   BigWallskin: {fileID: 11400000, guid: 6ac71a71e7f56624787c536f9e18f51f, type: 2}
+--- !u!114 &412530247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412530241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fad782b99aec11046a9b1e88360ffc0b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &412530248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412530241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29ba673e2e2bd1d419b7b9683bb631db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 412530251}
+  frequency: 10
+  distance: 2
+  originalCube: {fileID: 1082202574479132, guid: 57812b69dab35b84995dd1325c897474,
+    type: 2}
+  myBigCube: {fileID: 1994641359049270, guid: 2ae2a60630781344785bc96437d9efde, type: 2}
+  isSafe: 0
+  tpsSafe: 0
+--- !u!114 &412530249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412530241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3800299e984330e48b630bf2b0970257, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 412530251}
+  bonus1: {fileID: 1263925545844432, guid: 9c4ec5afcf8317844bf131c678db4f5f, type: 2}
+  bonus2: {fileID: 1716511916334988, guid: 55cda9290df8fbe4689c57c92ed3dd56, type: 2}
+  bonus3: {fileID: 1981427348375210, guid: d05e50c588e419c41a9e04946d9b40ef, type: 2}
+  bonus4: {fileID: 1684195475410322, guid: 49a442d074d807042a972842df6c5efc, type: 2}
+  gapBonus: 2
+--- !u!114 &412530250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 412530241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e3e20a882984b84ba59fd8601b3b727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 412530251}
+  gap: 0.15
+  moveSpeed: 25
+  jumpForce: 27500
+  PlayerCam: {fileID: 1844953429}
+  tpsBonus1: 0
+  tpsBonus2: 0
+  tpsBonus3: 0
+  tpsBonus4: 0
+  ghostBonus: 0
+  bigWall: 0
+  tpsStart: 0
+  isStopped: 0
 --- !u!54 &412530251 stripped
 Rigidbody:
   m_PrefabParentObject: {fileID: 54656310210862952, guid: ac62a3ed4d5579c429cd829d6ddb8786,
@@ -15519,7 +15604,7 @@ GameObject:
   - component: {fileID: 1174897769}
   - component: {fileID: 1174897768}
   m_Layer: 0
-  m_Name: _No Copyright Music_ Nicolai Heidlas - Granny Piano
+  m_Name: Music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15534,7 +15619,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 21083acd0155b3f48ba48d6a31e4f4a6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: aad083911fa9d2e498e51a15dda4f6ad, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -15831,6 +15916,11 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114457852749934682, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
+    - {fileID: 114140967086277296, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
+    - {fileID: 114790133394356174, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
+    - {fileID: 114527827416865608, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
+    - {fileID: 114271334276684080, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
+    - {fileID: 114203490061425178, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: ac62a3ed4d5579c429cd829d6ddb8786, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1508529951
@@ -19804,6 +19894,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 85, z: 0}
+--- !u!20 &1844953429 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20649418981579748, guid: ac62a3ed4d5579c429cd829d6ddb8786,
+    type: 2}
+  m_PrefabInternal: {fileID: 1461443127}
 --- !u!1 &1845528784
 GameObject:
   m_ObjectHideFlags: 0

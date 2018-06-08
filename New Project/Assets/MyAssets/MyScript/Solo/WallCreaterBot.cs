@@ -51,7 +51,7 @@ public class WallCreaterBot : MonoBehaviour
 
                 cube.layer = 1;
 
-                cube.GetComponent<MeshRenderer>().enabled = true;
+                cube.GetComponent<MeshRenderer>().enabled = false;
 
                 isSafe = false;
                 if (!bigWall)

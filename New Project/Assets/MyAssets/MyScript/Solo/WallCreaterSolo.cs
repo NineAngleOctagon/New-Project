@@ -23,7 +23,7 @@ public class WallCreaterSolo : MonoBehaviour
 
     void Update()
     {
-        bigWall = rb.GetComponent<PlayerControllerSolo>().bigWall;
+        bigWall = rb.GetComponent<PlayerControllerTraining>().bigWall;
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
@@ -51,7 +51,7 @@ public class WallCreaterSolo : MonoBehaviour
 
                 cube.layer = 1;
 
-                cube.GetComponent<MeshRenderer>().enabled = true;
+                cube.GetComponent<MeshRenderer>().enabled = false;
 
                 isSafe = false;
                 if (!bigWall)
