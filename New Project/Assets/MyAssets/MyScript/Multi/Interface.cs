@@ -158,5 +158,6 @@ public class Interface : NetworkBehaviour
                 GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2, 300, 50), timerstart.ToString("0"));
             }
         }
+        
     }
 }
