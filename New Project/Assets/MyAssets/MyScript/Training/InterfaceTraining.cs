@@ -41,6 +41,7 @@ public class InterfaceTraining : MonoBehaviour
         public GUISkin Slowskin;
         public GUISkin Gohstskin;
         public GUISkin BigWallskin;
+        
 
         private bool Istalkingspeed = false;
         private bool Istalkingslow = false;
@@ -151,6 +152,11 @@ public class InterfaceTraining : MonoBehaviour
                     GUI.skin.box = Normalskin.box;
                     GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2, 300, 50), timerstart.ToString("0"));
                 }
+            GUI.skin.box.fontSize = 15;
+            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4, 200, 50), " A : forward \n left");
+            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4, 200, 50), " E : forward \n right");
+            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4 - 110, 200, 50), " Q : left");
+            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4 - 110, 200, 50), " D : right");
             }
         }
     }
