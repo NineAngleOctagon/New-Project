@@ -23,7 +23,7 @@ public class WallCreaterSolo : MonoBehaviour
 
     void Update()
     {
-        bigWall = rb.GetComponent<PlayerControllerTraining>().bigWall;
+        bigWall = rb.GetComponent<PlayerControllerSolo>().bigWall;
         trail = rb.GetComponent<TrailRenderer>();
 
         if (trail.positionCount > gapTrail)
