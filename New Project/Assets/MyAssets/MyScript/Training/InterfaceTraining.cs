@@ -138,7 +138,11 @@ public class InterfaceTraining : MonoBehaviour
                 GUI.skin.box = SafeZoneskin.box;
 
                 GUI.Box(new Rect(Screen.width - 100, (Screen.height / 2) - 245, 75, 75), timersafe.ToString("0"));
-            }
+                GUI.skin.box = Normalskin.box;
+                GUI.Box(new Rect(Screen.width / 6, 0, Screen.width - (Screen.height / 4) - (Screen.width / 6) - 50, Screen.height / 8), "you can go through walls here but not for long");
+
+
+        }
 
             if (timerstart >= 0.0f && rb.GetComponent<PlayerControllerTraining>().isStopped)
             {
@@ -153,11 +157,13 @@ public class InterfaceTraining : MonoBehaviour
                     GUI.Box(new Rect(Screen.width / 2 - 150, Screen.height / 2, 300, 50), timerstart.ToString("0"));
                 }
             GUI.skin.box.fontSize = 15;
-            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4, 200, 50), " A : forward \n left");
-            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4, 200, 50), " E : forward \n right");
-            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4 - 110, 200, 50), " Q : left");
-            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4 - 110, 200, 50), " D : right");
-            }
+            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4, 200, 50), "Q : left");
+            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4, 200, 50), "D : right");
+            GUI.Box(new Rect(Screen.width / 4 - 105, Screen.height / 4 - 110, 200, 50), "A : forward \n left ");
+            GUI.Box(new Rect(Screen.width / 4 + 105, Screen.height / 4 - 110, 200, 50), "E : forward \n right");
+            GUI.Box(new Rect(Screen.width /4, Screen.height / 4 + 60, 300, 50), " Spacebar : jump");
+
+        }
         }
     }
 

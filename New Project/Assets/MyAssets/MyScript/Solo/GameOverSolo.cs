@@ -271,6 +271,7 @@ public class GameOverSolo : MonoBehaviour
 
     private void OnGUI()
     {
+        
         if (first)
         {
             if (numbers == 1)

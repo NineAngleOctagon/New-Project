@@ -271,6 +271,11 @@ public class GameOverTraining : MonoBehaviour
 
     private void OnGUI()
     {
+        if (isOver)
+        {
+            GUI.skin.box = rb.GetComponent<InterfaceTraining>().Normalskin.box;
+            GUI.Box(new Rect(Screen.width / 6, 0, Screen.width - (Screen.height / 4) - (Screen.width / 6) - 50, Screen.height / 8), "Press 1, 2 or 3 \n to change hight view cameras");
+        }
         if (first)
         {
             if (numbers == 1)

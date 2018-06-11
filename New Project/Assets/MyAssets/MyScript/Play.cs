@@ -10,6 +10,9 @@ public class Play : MonoBehaviour
     public Dropdown numAI;
     public Dropdown diffAI;
 
+    public AudioSource music;
+    public Toggle musicMute;
+
     public void PlaySolo()
     {
         switch (numAI.value)
@@ -46,5 +49,14 @@ public class Play : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void Mute()
+    {
+        music.mute = !musicMute.isOn;
+        if (!musicMute.isOn)
+            PlayerPrefs.SetInt("mute", 0);
+        else
+            PlayerPrefs.SetInt("mute", 1);
     }
 }

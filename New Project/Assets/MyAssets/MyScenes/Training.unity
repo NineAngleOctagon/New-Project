@@ -1085,6 +1085,7 @@ MonoBehaviour:
   bigWall: 0
   tpsStart: 0
   isStopped: 0
+  music: {fileID: 1174897768}
 --- !u!54 &412530251 stripped
 Rigidbody:
   m_PrefabParentObject: {fileID: 54656310210862952, guid: ac62a3ed4d5579c429cd829d6ddb8786,

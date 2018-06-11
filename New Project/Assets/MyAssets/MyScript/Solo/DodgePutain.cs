@@ -33,7 +33,7 @@ public class DodgePutain : MonoBehaviour {
         bool_Front_Left = front_Left.GetComponent<Idetectedsmth>().detected;
         bool_Front_Right = front_Right.GetComponent<Idetectedsmth>().detected;
 
-        if (this.transform.position.y < 0.51 && this.transform.position.y > 0.49 && Time.time - tps >= 0.075f)
+        if (Time.time - tps >= 0.03f && this.transform.position.y < 0.51 && this.transform.position.y > 0.49)
         {
             rb.GetComponent<MoveBot>().enabled = true;
             if (bool_Front_Left && bool_Left && !bool_Right)

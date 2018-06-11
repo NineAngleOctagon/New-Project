@@ -29,6 +29,8 @@ public class PlayerControllerTraining : MonoBehaviour
     public float tpsStart;
     public bool isStopped;
 
+    public AudioSource music;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +43,11 @@ public class PlayerControllerTraining : MonoBehaviour
         GetComponent<MeshRenderer>().material.DisableKeyword("_EMISSION");
         GetComponent<TrailRenderer>().material.color = new Color(0, 0, 255, 255);
         GetComponent<TrailRenderer>().material.DisableKeyword("_EMISSION");
+
+        if (PlayerPrefs.HasKey("mute") && PlayerPrefs.GetInt("mute") == 0)
+        {
+            music.mute = true;
+        }
     }
 
     void FixedUpdate()

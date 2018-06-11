@@ -34,6 +34,8 @@ public class PlayerController : NetworkBehaviour
     public float tpsStart;
     public bool isStopped;
 
+    public AudioSource music;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -41,6 +43,11 @@ public class PlayerController : NetworkBehaviour
 
         tpsStart = Time.time;
         isStopped = true;
+
+        if (PlayerPrefs.HasKey("mute") && PlayerPrefs.GetInt("mute") == 0)
+        {
+            music.mute = true;
+        }
     }
 
     void FixedUpdate()
